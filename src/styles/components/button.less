@@ -1,0 +1,20 @@
+@btn-prefix-cls: ~"@{css-prefix}btn";
+
+.button-size(@padding; @font-size; @border-radius) {
+  padding: @padding;
+  font-size: @font-size;
+  border-radius: @border-radius;
+}
+
+.button-color(@color; @background; @border) {
+  color: @color;
+  background-color: @background;
+  border-color: @border;
+}
+
+.@{btn-prefix-cls} {
+  &-primary {
+    .button-size(@btn-padding-primary, @btn-font-size, @btn-border-radius);
+    .button-color(@btn-primary-font-color, @btn-primary-bg-color, @btn-primary-border-color);
+  }
+}
