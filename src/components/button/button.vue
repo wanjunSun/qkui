@@ -1,12 +1,14 @@
 <template>
-  <button :type="{ type }" :class="classes" @click="handleClick"></button>
+  <button :type="type" :class="classes" @click="handleClick">
+    <slot></slot>
+  </button>
 </template>
 
 <script>
 import { contain } from "../../utils/share"
-const defaultClass = "qk-button"
+const defaultClass = "qk-btn"
 export default {
-  name: "button",
+  name: "QkButton",
   props: {
     type: {
       validator(value) {

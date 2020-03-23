@@ -1,9 +1,10 @@
 import Vue from "vue"
 import VueRouter from "vue-router"
 import App from "./app.vue"
-import qkui from "../src/index"
+import "../src/styles/index.less"
+import QkUi from "../src/index"
 Vue.use(VueRouter)
-Vue.use(qkui)
+Vue.use(QkUi)
 // 开启debug模式
 Vue.config.debug = true
 // 路由配置

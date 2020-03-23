@@ -24,39 +24,7 @@ module.exports = {
       {
         // https://vue-loader.vuejs.org/en/configurations/extract-css.html
         test: /\.vue$/,
-        loader: "vue-loader",
-        options: {
-          loaders: {
-            css: [
-              "vue-style-loader",
-              {
-                loader: "css-loader",
-                options: {
-                  sourceMap: true
-                }
-              }
-            ],
-            less: [
-              "vue-style-loader",
-              {
-                loader: "css-loader",
-                options: {
-                  sourceMap: true
-                }
-              },
-              {
-                loader: "less-loader",
-                options: {
-                  sourceMap: true
-                }
-              }
-            ]
-          },
-          postLoaders: {
-            html: "babel-loader?sourceMap"
-          },
-          sourceMap: true
-        }
+        use: ["vue-loader"]
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
@@ -76,43 +44,11 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loaders: [
-          {
-            loader: "style-loader",
-            options: {
-              sourceMap: true
-            }
-          },
-          {
-            loader: "css-loader",
-            options: {
-              sourceMap: true
-            }
-          }
-        ]
+        use: ["style-loader", "css-loader"]
       },
       {
         test: /\.less$/,
-        loaders: [
-          {
-            loader: "style-loader",
-            options: {
-              sourceMap: true
-            }
-          },
-          {
-            loader: "css-loader",
-            options: {
-              sourceMap: true
-            }
-          },
-          {
-            loader: "less-loader",
-            options: {
-              sourceMap: true
-            }
-          }
-        ]
+        use: ["style-loader", "css-loader", "less-loader"]
       }
     ]
   },
