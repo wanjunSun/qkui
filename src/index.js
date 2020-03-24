@@ -3,7 +3,7 @@ const components = { QkButton }
 const api = { ...components }
 
 const install = (Vue, opt = {}) => {
-  // if (install.installed) return
+  if (install.installed) return
   Object.keys(api).forEach(key => {
     Vue.component(key, api[key])
   })
