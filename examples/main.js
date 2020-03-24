@@ -1,7 +1,7 @@
 import Vue from "vue"
 import App from "./App.vue"
 import router from "./router"
-import "../packages/style/index.less";
+import "../packages/style/index.less"
 import QkUI from "../packages"
 Vue.config.productionTip = false
 Vue.use(QkUI)

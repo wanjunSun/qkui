@@ -6,18 +6,17 @@
 
 <script>
 import { oneOf } from "../../../src/utils"
-const prefixCls = "qk-button"
+const prefixCls = "qk-btn"
 export default {
-  name: "QKButton",
+  name: "qk-button",
   props: {
     type: {
       validator(value) {
         return oneOf(value, [
           "primary",
-          "ghost",
-          "dashed",
+          // "ghost",
+          // "dashed",
           "text",
-          "info",
           "success",
           "warning",
           "error",
@@ -43,6 +42,3 @@ export default {
   }
 }
 </script>
-<style lang="less" scoped>
-@import url("../../style/index.less");
-</style>

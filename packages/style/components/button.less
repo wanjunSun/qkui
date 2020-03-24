@@ -1,0 +1,79 @@
+@css-prefix-btn :~"@{css-prefix}btn";
+
+.box-color(@color, @bacnkgroundColor, @borderColor) {
+  color: @color;
+  background-color: @bacnkgroundColor;
+  border-color: @borderColor;
+
+}
+
+.font-css(@fontSize: 14px, @fontweigth: 500, @fontFamily: "微软雅黑") {
+  font-size: @fontSize;
+  font-weight: @fontweigth;
+  font-family: @fontFamily;
+}
+
+.@{css-prefix-btn} {
+  padding: @css-padding-default;
+  text-align: center;
+  border: 1px solid;
+  outline: none;
+  cursor: pointer;
+  transition: all .3s;
+  .font-css();
+
+  &-default {
+    .box-color(@css-white, @css-color-default, @css-white);
+
+    &:hover {
+      .box-color(shade(@css-white, 3%); tint(@css-color-default, 20%); @css-white);
+      border-radius: @css-border-radius;
+    }
+  }
+
+  &-primary {
+    .box-color(@css-white, @css-color-primary, @css-white);
+
+    &:hover {
+      .box-color(shade(@css-white, 3%); tint(@css-color-primary, 20%); @css-white);
+      border-radius: @css-border-radius;
+    }
+  }
+
+  &-success {
+    .box-color(@css-white, @css-color-sucess, @css-white);
+
+    &:hover {
+      .box-color(shade(@css-white, 3%); tint(@css-color-sucess, 20%); @css-white);
+      border-radius: @css-border-radius;
+    }
+  }
+
+  &-warning {
+    .box-color(@css-white, @css-color-warning, @css-white);
+
+    &:hover {
+      .box-color(shade(@css-white, 3%); tint(@css-color-warning, 20%); @css-white);
+      border-radius: @css-border-radius;
+    }
+  }
+
+  &-error {
+    .box-color(@css-white, @css-color-error, @css-white);
+
+    &:hover {
+      .box-color(shade(@css-white, 3%); tint(@css-color-error, 20%); @css-white);
+      border-radius: @css-border-radius;
+    }
+  }
+
+  &-text {
+    border: 0;
+    color: @css-color-primary;
+    background: transparent;
+
+    &:hover {
+      color: tint(@css-color-primary, 30%);
+    }
+  }
+}
