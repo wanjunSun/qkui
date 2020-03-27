@@ -1,10 +1,9 @@
 @css-prefix-btn :~"@{css-prefix}btn";
 
-.box-color(@color, @bacnkgroundColor, @borderColor) {
+.btn-color(@color, @bacnkgroundColor, @borderColor) {
   color: @color;
   background-color: @bacnkgroundColor;
   border-color: @borderColor;
-
 }
 
 .font-css(@fontSize: 14px, @fontweigth: 500, @fontFamily: "微软雅黑") {
@@ -13,63 +12,63 @@
   font-family: @fontFamily;
 }
 
-.@{css-prefix-btn} {
+.btn() {
   padding: @css-padding-default;
   text-align: center;
-  border: 1px solid;
   outline: none;
   cursor: pointer;
   transition: all .3s;
   .font-css();
+}
 
-  .box-color(@css-white, @css-color-default, @css-white);
+.btn-default() {
+  .font-css();
+  border-width: 1px;
+  border-style: solid;
+  .btn-color(rgb(34, 34, 34), #ffffff, @css-color-primary);
 
   &:hover {
-    .box-color(shade(@css-white, 3%); tint(@css-color-default, 20%); @css-white);
+    .btn-color(rgb(34, 34, 34); #fff; @css-color-primary);
     border-radius: @css-border-radius;
   }
+}
 
-  &-default {
-    .box-color(@css-white, @css-color-default, @css-white);
-
-    &:hover {
-      .box-color(shade(@css-white, 3%); tint(@css-color-default, 20%); @css-white);
-      border-radius: @css-border-radius;
-    }
-  }
+.@{css-prefix-btn} {
+  .btn;
+  .btn-default;
 
   &-primary {
-    .box-color(@css-white, @css-color-primary, @css-white);
+    .btn-color(@css-white, @css-color-primary, @css-white);
 
     &:hover {
-      .box-color(shade(@css-white, 3%); tint(@css-color-primary, 20%); @css-white);
+      .btn-color(shade(@css-white, 3%); tint(@css-color-primary, 20%); @css-white);
       border-radius: @css-border-radius;
     }
   }
 
   &-success {
-    .box-color(@css-white, @css-color-sucess, @css-white);
+    .btn-color(@css-white, @css-color-sucess, @css-white);
 
     &:hover {
-      .box-color(shade(@css-white, 3%); tint(@css-color-sucess, 20%); @css-white);
+      .btn-color(shade(@css-white, 3%); tint(@css-color-sucess, 20%); @css-white);
       border-radius: @css-border-radius;
     }
   }
 
   &-warning {
-    .box-color(@css-white, @css-color-warning, @css-white);
+    .btn-color(@css-white, @css-color-warning, @css-white);
 
     &:hover {
-      .box-color(shade(@css-white, 3%); tint(@css-color-warning, 20%); @css-white);
+      .btn-color(shade(@css-white, 3%); tint(@css-color-warning, 20%); @css-white);
       border-radius: @css-border-radius;
     }
   }
 
   &-error {
-    .box-color(@css-white, @css-color-error, @css-white);
+    .btn-color(@css-white, @css-color-error, @css-white);
 
     &:hover {
-      .box-color(shade(@css-white, 3%); tint(@css-color-error, 20%); @css-white);
+      .btn-color(shade(@css-white, 3%); tint(@css-color-error, 20%); @css-white);
       border-radius: @css-border-radius;
     }
   }
@@ -80,8 +79,30 @@
     background: transparent;
 
     &:hover {
-      .box-color(transparent, transparent, transparent);
+      .btn-color(transparent, transparent, transparent);
       color: tint(@css-color-primary, 30%);
+    }
+  }
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+
+    &,
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      .btn-color(#e3e3e3; #747474; #e3e3e3);
+    }
+  }
+
+  &.disabled,
+  &[disabled] {
+    cursor: not-allowed;
+
+    >* {
+      pointer-events: none;
     }
   }
 }

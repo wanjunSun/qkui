@@ -1,5 +1,5 @@
 <template>
-  <button :class="classes" @click="onClick">
+  <button :class="classes" @click="onClick" :disabled="disabled">
     <slot></slot>
   </button>
 </template>
@@ -11,6 +11,7 @@ export default {
   name: "qk-button",
   props: {
     type: {
+      default: "default",
       validator(value) {
         return oneOf(value, [
           "primary",
@@ -23,7 +24,8 @@ export default {
           "default"
         ])
       }
-    }
+    },
+    disabled: Boolean
   },
   computed: {
     classes() {
