@@ -1,8 +1,5 @@
-import QKButton from './src/Button';
+import QKButton from "./src/button.vue"
+import QKButtonGroup from "./src/button-group.vue"
 
-/* istanbul ignore next */
-QKButton.install = function(Vue) {
-  Vue.component(QKButton.name, QKButton);
-};
-
-export default QKButton;
+QKButton.Group = QKButtonGroup
+export default QKButton

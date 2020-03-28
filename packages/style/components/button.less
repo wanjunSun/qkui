@@ -1,108 +1,38 @@
 @css-prefix-btn :~"@{css-prefix}btn";
 
-.btn-color(@color, @bacnkgroundColor, @borderColor) {
-  color: @color;
-  background-color: @bacnkgroundColor;
-  border-color: @borderColor;
-}
-
-.font-css(@fontSize: 14px, @fontweigth: 500, @fontFamily: "微软雅黑") {
-  font-size: @fontSize;
-  font-weight: @fontweigth;
-  font-family: @fontFamily;
-}
-
-.btn() {
-  padding: @css-padding-default;
-  text-align: center;
-  outline: none;
-  cursor: pointer;
-  transition: all .3s;
-  .font-css();
-}
-
-.btn-default() {
-  .font-css();
-  border-width: 1px;
-  border-style: solid;
-  .btn-color(rgb(34, 34, 34), #ffffff, @css-color-primary);
-
-  &:hover {
-    .btn-color(rgb(34, 34, 34); #fff; @css-color-primary);
-    border-radius: @css-border-radius;
-  }
-}
-
 .@{css-prefix-btn} {
   .btn;
   .btn-default;
 
-  &-primary {
-    .btn-color(@css-white, @css-color-primary, @css-white);
+  &-long {
+    width: 100%;
+  }
 
-    &:hover {
-      .btn-color(shade(@css-white, 3%); tint(@css-color-primary, 20%); @css-white);
-      border-radius: @css-border-radius;
-    }
+  &-primary {
+    .btn-primary;
   }
 
   &-success {
-    .btn-color(@css-white, @css-color-sucess, @css-white);
-
-    &:hover {
-      .btn-color(shade(@css-white, 3%); tint(@css-color-sucess, 20%); @css-white);
-      border-radius: @css-border-radius;
-    }
+    .btn-success;
   }
 
   &-warning {
-    .btn-color(@css-white, @css-color-warning, @css-white);
-
-    &:hover {
-      .btn-color(shade(@css-white, 3%); tint(@css-color-warning, 20%); @css-white);
-      border-radius: @css-border-radius;
-    }
+    .btn-warning;
   }
 
   &-error {
-    .btn-color(@css-white, @css-color-error, @css-white);
-
-    &:hover {
-      .btn-color(shade(@css-white, 3%); tint(@css-color-error, 20%); @css-white);
-      border-radius: @css-border-radius;
-    }
+    .btn-error;
   }
 
   &-text {
-    border: 0;
-    color: @css-color-primary;
-    background: transparent;
-
-    &:hover {
-      .btn-color(transparent, transparent, transparent);
-      color: tint(@css-color-primary, 30%);
-    }
+    .btn-text;
   }
 
-  &.disabled,
-  &[disabled],
-  fieldset[disabled] & {
-
-    &,
-    &:hover,
-    &:focus,
-    &:active,
-    &.active {
-      .btn-color(#e3e3e3; #747474; #e3e3e3);
-    }
+  &-circle {
+    .btn-circle;
   }
 
-  &.disabled,
-  &[disabled] {
-    cursor: not-allowed;
-
-    >* {
-      pointer-events: none;
-    }
+  &-group {
+    .btn-group(@css-prefix-btn);
   }
 }

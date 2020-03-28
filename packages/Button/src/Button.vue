@@ -1,5 +1,5 @@
 <template>
-  <button :class="classes" @click="onClick" :disabled="disabled">
+  <button :class="classes" @click="onClick" :disabled="disabled" :long="long">
     <slot></slot>
   </button>
 </template>
@@ -25,14 +25,31 @@ export default {
         ])
       }
     },
-    disabled: Boolean
+    disabled: Boolean,
+    long: {
+      type: Boolean,
+      default: false
+    },
+    size: {
+      validator(value) {
+        return oneOf(value, ["small", "large", "default"])
+      }
+    },
+    shape: {
+      validator(value) {
+        return oneOf(value, ["circle"])
+      }
+    }
   },
   computed: {
     classes() {
       return [
         `${prefixCls}`,
         {
-          [`${prefixCls}-${this.type}`]: !!this.type
+          [`${prefixCls}-${this.type}`]: !!this.type,
+          [`${prefixCls}-long`]: this.long,
+          [`${prefixCls}-${this.size}`]: !!this.size,
+          [`${prefixCls}-${this.shape}`]: !!this.shape
         }
       ]
     }
