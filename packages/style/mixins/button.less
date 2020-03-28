@@ -166,6 +166,8 @@
 
   .@{btn-name}:not(:first-child):not(:last-child) {
     margin-left: -1px;
+    border-left: 0;
+    border-right: 0;
 
     &:not(:last-child) {
       border-radius: 0;
@@ -190,6 +192,4 @@
   &>&:not(:first-child):not(:last-child)>.@{btn-name} {
     border-radius: 0;
   }
-
-
 }
