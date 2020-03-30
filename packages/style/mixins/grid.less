@@ -1,0 +1,52 @@
+@col-prefix-class :~"@{css-prefix}col";
+@row-prefix-class :~"@{css-prefix}row";
+
+.float-grid-columns(@class) {
+  .col(@index) {
+    // initial
+    @item: ~".@{col-prefix-class}-span@{class}-@{index}";
+    .col((@index + 1), @item);
+  }
+
+  .col(@index, @list) when (@index =< @grid-columns) {
+    @item: ~".@{col-prefix-class}-span@{class}-@{index}";
+    .col((@index + 1), ~"@{list}, @{item}");
+  }
+
+  .col(@index, @list) when (@index > @grid-columns) {
+    @{list} {
+      float: left;
+      flex: 0 0 auto;
+    }
+  }
+
+  .col(1);
+}
+
+.loop-grid-columns(@index, @class) when (@index > 0) {
+  .@{col-prefix-class}-span@{class}-@{index} {
+    display: block;
+    width: percentage((@index / @grid-columns));
+  }
+
+  .loop-grid-columns((@index - 1), @class);
+}
+
+.loop-grid-columns(@index, @class) when (@index =0) {
+  .@{col-prefix-class}-span@{class}-@{index} {
+    display: none;
+  }
+}
+
+.make-grid(@class: ~'') {
+  .float-grid-columns(@class);
+  .loop-grid-columns(@grid-columns, @class);
+}
+
+.make-row(@gutter: @grid-gutter-width) {
+  position: relative;
+  margin-left: (@gutter / -2);
+  margin-right: (@gutter / -2);
+  height: auto;
+  .pseudoDom();
+}

@@ -8,7 +8,7 @@
 const prefixCls = "qk-btn-group"
 import { oneOf } from "../../../src/utils"
 export default {
-  name: "qk-button-group",
+  name: "qkButtonGroup",
   props: {
     size: {
       validator(value) {

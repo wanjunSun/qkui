@@ -8,7 +8,7 @@
 import { oneOf } from "../../../src/utils"
 const prefixCls = "qk-btn"
 export default {
-  name: "qk-button",
+  name: "qkButton",
   props: {
     type: {
       default: "default",
