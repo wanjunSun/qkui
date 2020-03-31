@@ -1,6 +1,6 @@
 import QKButton from "./Button"
 import QKRow from "./Grid"
-import "./style/index.less"
+import "../src/style/index.less"
 // 所有组件列表
 const components = [QKButton, QKButton.Group, QKRow, QKRow.QKCol]
 // 定义 install 方法，接收 Vue 作为参数
