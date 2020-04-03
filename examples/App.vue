@@ -6,16 +6,16 @@
     <qk-button type="primary">primary</qk-button>
     <qk-button type="success">成功</qk-button>
     <qk-button type="warning">警告</qk-button>
-    <qk-button type="error">危险</qk-button>
+    <qk-button type="error">失败</qk-button>
     <qk-button type="text">link</qk-button>
     <qk-button type="primary" size="small">小</qk-button>
     <qk-button type="primary" size="large">大</qk-button>
     <qk-button size="large" shape="circle">圆角</qk-button>
     <qk-button long>长</qk-button>
     <qk-button-group shape="circle" size="large">
-      <qk-button type="success">成功</qk-button><qk-button>成功</qk-button
-      ><qk-button type="warning">成功</qk-button><qk-button>成功</qk-button>
-      <qk-button type="error">成功</qk-button>
+      <qk-button type="success">成功</qk-button><qk-button>默认</qk-button
+      ><qk-button type="warning">警告</qk-button><qk-button>默认</qk-button>
+      <qk-button type="error">失败</qk-button>
     </qk-button-group>
     <h1>栅格</h1>
     <qk-row>
@@ -38,6 +38,14 @@
         <div style="background-color:#B5FFC0">8</div>
       </qk-col>
     </qk-row>
+	<h1>tag</h1>
+    <qk-tag>默认</qk-tag>
+	<qk-tag size="small">小</qk-tag>
+	<qk-tag closable>关闭</qk-tag>
+    <qk-tag type="success" >成功</qk-tag>
+	<qk-tag type="warning">警报</qk-tag>
+	<qk-tag type="error">失败</qk-tag>
+	<qk-icon type='qk-icon-ashbin' color='red' size="18"/>
   </div>
 </template>
 

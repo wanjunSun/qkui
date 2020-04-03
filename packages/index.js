@@ -1,8 +1,10 @@
 import QKButton from "./Button"
 import QKRow from "./Grid"
+import QKTag from "./tag"
+import QKIcon from "./icon"
 import "../src/style/index.less"
 // 所有组件列表
-const components = [QKButton, QKButton.Group, QKRow, QKRow.QKCol]
+const components = [QKButton, QKButton.Group, QKRow, QKRow.QKCol, QKTag, QKIcon]
 // 定义 install 方法，接收 Vue 作为参数
 const install = function(Vue) {
   // 判断是否安装，安装过就不继续往下执行

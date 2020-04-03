@@ -22,14 +22,14 @@
   transition: all .3s;
   cursor: pointer;
   .font-css();
-  .btn-size(@css-padding-default, @btn-font-size, 0);
+  .btn-size(@css-padding-default, @css-font-size, 0);
 
   &-small {
-    .btn-size(@css-padding-small, @btn-font-size-small, 0);
+    .btn-size(@css-padding-small, @css-font-size-small, 0);
   }
 
   &-large {
-    .btn-size(@css-padding-large, @btn-font-size-large, 0);
+    .btn-size(@css-padding-large, @css-font-size-large, 0);
   }
 
   &.disabled,
@@ -96,7 +96,7 @@
 
   &-large {
     &>.@{btn-name} {
-      .btn-size(@css-padding-large, @btn-font-size-large, 0);
+      .btn-size(@css-padding-large, @css-font-size-large, 0);
     }
   }
 }

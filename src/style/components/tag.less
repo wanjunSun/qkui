@@ -1,0 +1,76 @@
+@css-perfix-tag: ~"@{css-prefix}tag";
+
+.tag-size(@padding, @fontSize, @borderRaduis) {
+  padding: @padding;
+  font-size: @fontSize;
+  border-radius: @borderRaduis;
+}
+
+.tag-color(@backColor, @color, @borderColor) {
+  background-color: @backColor;
+  color: @color;
+  border: 1px solid @borderColor;
+}
+
+.@{css-perfix-tag} {
+  display: inline-block;
+  height: 24px;
+  line-height: 21px;
+  overflow: hidden;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  transition: all .3s;
+  .tag-size(0 10px, 14px, 0);
+
+  .tag-color(transparent, @css-color-primary, @css-color-primary);
+
+  i {
+    position: relative;
+    right: -5px;
+    top: 1px;
+  }
+
+  i:hover,
+  i:active {
+    color: shade(@css-color-primary, 10%);
+    font-weight: 800;
+  }
+
+  &-small {
+    height: 18px;
+    line-height: 16px;
+    .tag-size(0 8px, @css-font-size-small, 0);
+  }
+
+  &-success {
+    .tag-color(tint(@css-color-sucess, 60%), @css-color-sucess, @css-color-sucess);
+
+    i:hover,
+    i:active {
+      color: shade(@css-color-sucess, 10%);
+      font-weight: 800;
+    }
+  }
+
+  &-error {
+    .tag-color(tint(@css-color-error, 60%), @css-color-error, @css-color-error);
+
+    i:hover,
+    i:active {
+      color: shade(@css-color-error, 10%);
+      font-weight: 800;
+    }
+  }
+
+  &-warning {
+    .tag-color(tint(@css-color-warning, 60%), @css-color-warning, @css-color-warning);
+
+    i:hover,
+    i:active {
+      color: shade(@css-color-warning, 10%);
+      font-weight: 800;
+    }
+  }
+
+}
