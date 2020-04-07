@@ -1,6 +1,5 @@
 const perfCls = "qk-tag"
 import { oneOf } from "../../../src/utils"
-
 export default {
   name: "qkTag",
   props: {
@@ -8,14 +7,14 @@ export default {
     size: {
       validator(value) {
         return oneOf(value, ["small", "default"])
-      }
+      },
     },
     type: {
       validator(value) {
         return oneOf(value, ["success", "error", "warning"])
-      }
+      },
     },
-    closable: Boolean
+    closable: Boolean,
   },
   computed: {
     classes() {
@@ -23,10 +22,10 @@ export default {
         `${perfCls}`,
         {
           [`${perfCls}-${this.size}`]: !!this.size,
-          [`${perfCls}-${this.type}`]: !!this.type
-        }
+          [`${perfCls}-${this.type}`]: !!this.type,
+        },
       ]
-    }
+    },
   },
   methods: {
     handleClose(event) {
@@ -35,7 +34,7 @@ export default {
     },
     handleClick(event) {
       this.$emit("click", event)
-    }
+    },
   },
   render() {
     return (
@@ -50,5 +49,5 @@ export default {
         )}
       </div>
     )
-  }
+  },
 }

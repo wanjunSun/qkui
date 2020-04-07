@@ -2,9 +2,18 @@ import QKButton from "./Button"
 import QKRow from "./Grid"
 import QKTag from "./tag"
 import QKIcon from "./icon"
+import QKAlert from "./Alert"
 import "../src/style/index.less"
 // 所有组件列表
-const components = [QKButton, QKButton.Group, QKRow, QKRow.QKCol, QKTag, QKIcon]
+const components = [
+  QKButton,
+  QKButton.Group,
+  QKRow,
+  QKRow.QKCol,
+  QKTag,
+  QKIcon,
+  QKAlert,
+]
 // 定义 install 方法，接收 Vue 作为参数
 const install = function(Vue) {
   // 判断是否安装，安装过就不继续往下执行
@@ -14,7 +23,7 @@ const install = function(Vue) {
     Vue.use(key, components[key])
   }) */
   // 遍历注册所有组件
-  components.map(component => Vue.component(component.name, component))
+  components.map((component) => Vue.component(component.name, component))
   // 下面这个写法也可以
   // components.map(component => Vue.use(component))
 }
@@ -26,5 +35,5 @@ if (typeof window !== "undefined" && window.Vue) {
 
 export default {
   install,
-  ...components
+  ...components,
 }

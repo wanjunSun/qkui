@@ -38,14 +38,25 @@
         <div style="background-color:#B5FFC0">8</div>
       </qk-col>
     </qk-row>
-	<h1>tag</h1>
+    <h1>tag</h1>
     <qk-tag>默认</qk-tag>
-	<qk-tag size="small">小</qk-tag>
-	<qk-tag closable>关闭</qk-tag>
-    <qk-tag type="success" >成功</qk-tag>
-	<qk-tag type="warning">警报</qk-tag>
-	<qk-tag type="error">失败</qk-tag>
-	<qk-icon type='qk-icon-ashbin' color='red' size="18"/>
+    <qk-tag size="small">小</qk-tag>
+    <qk-tag closable>关闭</qk-tag>
+    <qk-tag type="success">成功</qk-tag>
+    <qk-tag type="warning">警报</qk-tag>
+    <qk-tag type="error">失败</qk-tag>
+    <h1>alert</h1>
+    <qk-alert type="success">这是成功提醒</qk-alert>
+    <qk-alert type="error">这是错误提醒</qk-alert>
+    <qk-alert type="warning">这是警告提醒</qk-alert>
+    <qk-alert type="info">这是消息提醒</qk-alert>
+
+    <qk-alert type="success" closable>有关闭</qk-alert>
+    <qk-alert type="success" showIcon>有icon</qk-alert>
+    <qk-alert type="error" showIcon>有icon</qk-alert>
+    <qk-alert type="warning" showIcon>有icon</qk-alert>
+    <qk-alert type="info" showIcon>有icon</qk-alert>
+
   </div>
 </template>
 

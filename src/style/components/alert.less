@@ -1,0 +1,44 @@
+@alert-prefix-cls: ~"@{css-prefix}alert";
+
+.alert-color(@backgroundColor, @Color) {
+  background-color: tint(@backgroundColor, 65%);
+  color: shade(@Color, 30%);
+}
+
+.@{alert-prefix-cls} {
+  position: relative;
+  padding: 6px 10px;
+  font-size: @css-font-size;
+  margin-bottom: 10px;
+
+  &-success {
+    .alert-color(@css-color-sucess, @css-color-sucess);
+    .close-hover-icon(@css-color-sucess);
+  }
+
+  &-error {
+    .alert-color(@css-color-error, @css-color-error);
+    .close-hover-icon(@css-color-error);
+  }
+
+  &-warning {
+    .alert-color(@css-color-warning, @css-color-warning);
+    .close-hover-icon(@css-color-warning);
+  }
+
+  &-info {
+    .alert-color(@css-color-info, @css-color-info);
+    .close-hover-icon(@css-color-info);
+  }
+
+  &-close {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    cursor: pointer;
+  }
+
+  &-slot {
+    margin-left: 5px;
+  }
+}
