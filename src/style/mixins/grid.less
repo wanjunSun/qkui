@@ -27,6 +27,7 @@
   .@{col-prefix-class}-span@{class}-@{index} {
     display: block;
     width: percentage((@index / @grid-columns));
+    box-sizing: border-box;
   }
 
   .loop-grid-columns((@index - 1), @class);
@@ -47,6 +48,5 @@
   position: relative;
   margin-left: (@gutter / -2);
   margin-right: (@gutter / -2);
-  height: auto;
-  .pseudoDom();
+  .pseudoDom;
 }

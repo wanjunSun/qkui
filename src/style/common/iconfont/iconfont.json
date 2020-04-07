@@ -6,6 +6,48 @@
   "description": "自己编写一套ui",
   "glyphs": [
     {
+      "icon_id": "11488227",
+      "name": "ashbin-fill",
+      "font_class": "ashbin-fill",
+      "unicode": "e778",
+      "unicode_decimal": 59256
+    },
+    {
+      "icon_id": "11488274",
+      "name": "help",
+      "font_class": "help1",
+      "unicode": "e782",
+      "unicode_decimal": 59266
+    },
+    {
+      "icon_id": "11488302",
+      "name": "reeor-fill",
+      "font_class": "reeor-fill",
+      "unicode": "e789",
+      "unicode_decimal": 59273
+    },
+    {
+      "icon_id": "11488306",
+      "name": "prompt-fill",
+      "font_class": "prompt-fill",
+      "unicode": "e788",
+      "unicode_decimal": 59272
+    },
+    {
+      "icon_id": "11488326",
+      "name": "success-fill",
+      "font_class": "success-fill",
+      "unicode": "e78d",
+      "unicode_decimal": 59277
+    },
+    {
+      "icon_id": "11488341",
+      "name": "warning-fill",
+      "font_class": "warning-fill",
+      "unicode": "e790",
+      "unicode_decimal": 59280
+    },
+    {
       "icon_id": "11488103",
       "name": "prompt",
       "font_class": "prompt",
