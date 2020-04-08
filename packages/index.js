@@ -3,6 +3,7 @@ import QKRow from "./Grid"
 import QKTag from "./tag"
 import QKIcon from "./icon"
 import QKAlert from "./Alert"
+import QKInput from "./Input"
 import "../src/style/index.less"
 // 所有组件列表
 const components = [
@@ -13,6 +14,7 @@ const components = [
   QKTag,
   QKIcon,
   QKAlert,
+  QKInput,
 ]
 // 定义 install 方法，接收 Vue 作为参数
 const install = function(Vue) {

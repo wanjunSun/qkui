@@ -28,17 +28,17 @@
     </qk-row>
     <h1>gutter使用</h1>
     <div style="width:455px">
-    <qk-row :gutter="8" style="margin-top:10px;">
-      <qk-col :span="8">
-        <div style="background-color:#B5FFC0;">8</div>
-      </qk-col>
-      <qk-col :span="8">
-        <div style="background-color:#99CFE8">8</div>
-      </qk-col>
-      <qk-col :span="8">
-        <div style="background-color:#B5FFC0">8</div>
-      </qk-col>
-    </qk-row>
+      <qk-row :gutter="8" style="margin-top:10px;">
+        <qk-col :span="8">
+          <div style="background-color:#B5FFC0;">8</div>
+        </qk-col>
+        <qk-col :span="8">
+          <div style="background-color:#99CFE8">8</div>
+        </qk-col>
+        <qk-col :span="8">
+          <div style="background-color:#B5FFC0">8</div>
+        </qk-col>
+      </qk-row>
     </div>
     <h1>tag</h1>
     <qk-tag>默认</qk-tag>
@@ -58,7 +58,8 @@
     <qk-alert type="error" showIcon>有icon</qk-alert>
     <qk-alert type="warning" showIcon>有icon</qk-alert>
     <qk-alert type="info" showIcon>有icon</qk-alert>
-
+    <h1>input</h1>
+    <qk-input type='password'></qk-input>
   </div>
 </template>
 

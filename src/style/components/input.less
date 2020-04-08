@@ -1,0 +1,14 @@
+@input-prefix-cls: ~"@{css-prefix}input";
+
+.@{input-prefix-cls} {
+  display: inline-block;
+  width: 100%;
+  position: relative;
+  vertical-align: middle;
+  line-height: normal;
+
+  &-inner {
+    .input;
+  }
+
+}
