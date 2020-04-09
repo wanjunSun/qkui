@@ -1,8 +1,8 @@
-.hover(@color: @css-color-primary) {
+.hover(@color: @input-border-color) {
   border-color: tint(@color, 30%);
 }
 
-.active(@color: @css-color-primary) {
+.active(@color: @input-border-color) {
   border-color: tint(@color, 20%);
   outline: 0;
   box-shadow: 0 0 0 2px fade(@color, 20%);
@@ -27,21 +27,21 @@
   padding: 0 12px;
   font-size: @css-font-size;
   line-height: 30px;
-  border: 1px solid @css-color-primary;
+  border: 1px solid @input-border-color;
   border-radius: @css-radius-default;
   color: #333;
   background-color: @css-white;
   background-image: none;
   .placeholder();
-  cursor: text;
+  cursor: pointer;
   transition: border .3s ease-in-out, background .3s ease-in-out, box-shadow .3s ease-in-out;
 
   &:hover {
-    .hover;
+    .hover(@css-color-primary);
   }
 
   &:focus {
-    .active;
+    .active(@css-color-primary);
   }
 
   &[disabled],
@@ -49,4 +49,87 @@
     border: 1px solid @css-input-disabled;
     .disabled();
   }
+}
+
+.input-group(@inputClass) {
+  display: table;
+  width: 100%;
+  border-collapse: separate;
+  position: relative;
+  font-size: @css-font-size;
+  top: 1px;
+
+  &-before,
+  &-append,
+  >.@{inputClass} {
+    display: table-cell;
+  }
+
+  &-with-before .@{inputClass}-inner {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  &-with-append .@{inputClass}-inner {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  &-before .@{css-prefix}btn,
+  &-append .@{css-prefix}btn {
+    border-color: transparent;
+    background-color: transparent;
+    color: inherit;
+    margin: -(@input-padding-vertical-base + 2) (-@input-padding-horizontal);
+  }
+
+  &-before,
+  &-append {
+    width: 1px;
+    white-space: nowrap;
+    vertical-align: middle;
+  }
+
+  .@{inputClass} {
+    width: 100%;
+    float: left;
+    margin-bottom: 0;
+    position: relative;
+    z-index: 2;
+  }
+
+  &-before,
+  &-append {
+    padding: @input-padding-vertical-base @input-padding-horizontal;
+    font-size: inherit;
+    font-weight: normal;
+    line-height: 1;
+    color: #909399;
+    text-align: center;
+    background-color: #f5f7fa;
+    border: 1px solid @input-border-color;
+    border-radius: @css-radius-default ;
+  }
+
+  >span>.@{inputClass}:first-child,
+  >.@{inputClass}:first-child,
+  &-before {
+    border-bottom-right-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+  }
+
+  &-before {
+    border-right: 0;
+  }
+
+  &-append {
+    border-left: 0;
+  }
+
+  >.@{inputClass}:last-child,
+  &-append {
+    border-bottom-left-radius: 0 !important;
+    border-top-left-radius: 0 !important;
+  }
+
 }
