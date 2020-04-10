@@ -60,7 +60,7 @@
     <qk-alert type="info" showIcon>有icon</qk-alert>
     <h1>input</h1>
     <div style="margin-bottom:30px">
-      <qk-input type="text" v-model="input1"> </qk-input>
+      <qk-input type="text"> </qk-input>
       密码
       <qk-input type="password"></qk-input>
       <qk-input type="text" placeholder="请输入">
@@ -69,18 +69,23 @@
       <qk-input type="text">
         <template slot="before">\(^o^)/</template>
       </qk-input>
-      <qk-input type="text">
+      <qk-input type="text" show-word-limit maxlegth="210" v-model="input1">
         <template slot="before">\(^o^)/</template>
-        <template slot="append">\(^o^)/</template>
+        <template slot="append">1</template>
       </qk-input>
+
+      <qk-input type="text" size="small"> </qk-input>
+      <qk-input type="text" size="large" show-word-limit maxlegth="210" v-model="input1">
+      </qk-input>
+      <qk-input type="text" clearable > </qk-input>
     </div>
   </div>
 </template>
 <script>
 export default {
-  data(){
-    return{
-      input1:""
+  data() {
+    return {
+      input1: ""
     }
   }
 }

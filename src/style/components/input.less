@@ -11,6 +11,23 @@
     .input;
   }
 
+  &-clear {
+    .@{input-prefix-cls}-inner {
+      padding-right: 30px;
+    }
+  }
+
+  &-icon {
+    position: absolute;
+    right: 0;
+    width: 30px;
+    height: @input-height-default;
+    text-align: center;
+    line-height: @input-height-default;
+    color: @css-color-info;
+    cursor: pointer;
+    z-index: 2;
+  }
 }
 
 
