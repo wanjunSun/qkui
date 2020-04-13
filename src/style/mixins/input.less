@@ -87,6 +87,14 @@
   &-count {
     .input-count()
   }
+
+  textarea& {
+    max-width: 100%;
+    height: auto;
+    min-height: @input-height-default;
+    vertical-align: bottom;
+    font-size: @css-font-size;
+  }
 }
 
 .input-group(@inputClass) {
@@ -103,12 +111,12 @@
     display: table-cell;
   }
 
-  &-with-before .@{inputClass}-inner {
+  &-with-before .@{inputClass} {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
   }
 
-  &-with-append .@{inputClass}-inner {
+  &-with-append .@{inputClass} {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
   }

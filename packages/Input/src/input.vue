@@ -11,7 +11,9 @@
           :type="type"
           :disabled="disabled"
           :value="currentValue"
+          :autocomplete="autocomplete"
           :placeholder="placeholder"
+          :readonly="readonly"
           @keyup.enter="handleEnter"
           @blur="handelBlur"
           @focus="handelFocus"
@@ -30,16 +32,24 @@
         </span>
       </template>
       <template v-else>
-        <input
-          :class="inputClass"
-          type="textarea"
+        <textarea
+          ref="textarea"
+          :class="textareaClasses"
+          :style="textareaStyles"
           :disabled="disabled"
+          :maxlength="maxlegth"
+          :autocomplete="autocomplete"
+          :rows="rows"
           @keyup.enter="handleEnter"
+          @blur="handelBlur"
+          @focus="handelFocus"
           @input="handleInput"
-        />
+          @change="handelChange"
+        >
+        </textarea>
       </template>
     </div>
-    <span v-if="isWorldLimit" :class="[`${prefixCls}-inner-count`]">
+    <span v-if="isWorldLimit" :class="[`${prefixCls}-count`]">
       {{ textlength }}/{{ maxlegth }}
     </span>
   </div>
@@ -48,10 +58,17 @@
 <script>
 const prefixCls = "qk-input"
 import { oneOf } from "../../../src/utils"
+import calcTextareaHeight from "./calcTextareaClasses"
 export default {
   name: "qkInput",
   data() {
-    return { before: false, append: false, prefixCls, currentValue: this.value }
+    return {
+      before: false,
+      append: false,
+      prefixCls,
+      currentValue: this.value,
+      textareaStyles: {}
+    }
   },
   props: {
     type: {
@@ -64,6 +81,10 @@ export default {
       default: ""
     },
     disabled: {
+      type: Boolean,
+      default: false
+    },
+    readonly: {
       type: Boolean,
       default: false
     },
@@ -80,27 +101,40 @@ export default {
     showWordLimit: {
       type: Boolean,
       default: false
+    },
+    autocomplete: {
+      validator(value) {
+        return oneOf(value, ["on", "off"])
+      },
+      default: "off"
+    },
+    autosize: {
+      type: [Boolean, Object],
+      default: false
+    },
+    rows: {
+      type: Number,
+      default: 2
     }
   },
   computed: {
     classes() {
       return [
-        `${prefixCls}`,
+        `${prefixCls}-wrapper`,
         {
-          [`${prefixCls}-type`]: !!this.type,
           [`${prefixCls}-group`]: this.before || this.append,
           [`${prefixCls}-group-with-before`]: this.before,
           [`${prefixCls}-group-with-append`]: this.append,
-          [`${prefixCls}-inner-${this.size}`]: !!this.size,
+          [`${prefixCls}-wrapper-${this.size}`]: !!this.size,
           [`${prefixCls}-clear`]: this.clearable
         }
       ]
     },
     inputClass() {
-      return [
-        `${prefixCls}-inner`,
-        { [`${prefixCls}-disabled`]: !!this.disabled }
-      ]
+      return [`${prefixCls}`, { [`${prefixCls}-disabled`]: this.disabled }]
+    },
+    textareaClasses() {
+      return [`${prefixCls}`, { [`${prefixCls}-disabled`]: this.disabled }]
     },
     textlength() {
       return this.value.length
@@ -140,6 +174,9 @@ export default {
     },
     setCurrentValue(value) {
       if (value === this.currentValue) return
+      this.$nextTick(() => {
+        this.resizeTextarea()
+      })
       this.currentValue = value
     },
     calcClearIcon() {
@@ -159,6 +196,18 @@ export default {
       if (this.append) {
         el.style.right = `${elAppend.offsetWidth}px`
       } else el.removeAttribute("style")
+    },
+    resizeTextarea() {
+      const autosize = this.autosize
+      if (!autosize || this.type === "textarea") {
+        return false
+      }
+      const { minRow, maxRow } = autosize
+      this.textareaStyles = calcTextareaHeight(
+        this.$refs.textarea,
+        minRow,
+        maxRow
+      )
     }
   },
   mounted() {
@@ -169,6 +218,7 @@ export default {
       this.before = false
       this.append = false
     }
+    this.resizeTextarea()
   },
   updated() {
     this.$nextTick(this.calcClearIcon())

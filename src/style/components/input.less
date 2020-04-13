@@ -1,18 +1,18 @@
 @input-prefix-cls: ~"@{css-prefix}input";
 
 .@{input-prefix-cls} {
-  display: inline-block;
-  width: 100%;
-  position: relative;
-  vertical-align: middle;
-  line-height: normal;
-
-  &-inner {
-    .input;
+  .input;
+  
+  &-wrapper {
+    display: inline-block;
+    width: 100%;
+    position: relative;
+    vertical-align: middle;
+    line-height: normal;
   }
 
   &-clear {
-    .@{input-prefix-cls}-inner {
+    .@{input-prefix-cls} {
       padding-right: 30px;
     }
   }

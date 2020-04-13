@@ -75,9 +75,20 @@
       </qk-input>
 
       <qk-input type="text" size="small"> </qk-input>
-      <qk-input type="text" size="large" show-word-limit maxlegth="210" v-model="input1">
+      <qk-input
+        type="text"
+        size="large"
+        show-word-limit
+        maxlegth="210"
+        v-model="input1"
+      >
       </qk-input>
-      <qk-input type="text" clearable > </qk-input>
+      <qk-input
+        type="textarea"
+        :autosize="{ minRow: 4, maxRow: 8 }"
+        placeholder="说说你的想法吧..."
+      >
+      </qk-input>
     </div>
   </div>
 </template>
@@ -87,7 +98,8 @@ export default {
     return {
       input1: ""
     }
-  }
+  },
+  methods: {}
 }
 </script>
 <style></style>
