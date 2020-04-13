@@ -71,7 +71,7 @@ export default {
   methods: {
     handelClick(e) {
       this.closed = true
-      this.$emit("click", e)
+      this.$emit("close", e)
     },
   },
 }

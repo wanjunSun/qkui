@@ -12,7 +12,7 @@
     <qk-button type="primary" size="large">大</qk-button>
     <qk-button size="large" shape="circle">圆角</qk-button>
     <qk-button long>长</qk-button>
-    <qk-button-group shape="circle" size="large">
+    <qk-button-group shape="circle" size="large" vertically>
       <qk-button type="success">成功</qk-button><qk-button>默认</qk-button
       ><qk-button type="warning">警告</qk-button><qk-button>默认</qk-button>
       <qk-button type="error">失败</qk-button>
