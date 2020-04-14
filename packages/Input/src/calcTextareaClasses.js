@@ -36,7 +36,6 @@ const CONTEXT_STYLE = [
 
 function calculateNodeStyling(node) {
   const style = window.getComputedStyle(node)
-
   const boxSizing = style.getPropertyValue("box-sizing")
 
   const paddingSize =

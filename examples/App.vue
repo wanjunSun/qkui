@@ -89,6 +89,10 @@
         placeholder="说说你的想法吧..."
       >
       </qk-input>
+
+      <h1>radio</h1>
+      <qk-radio label="1" v-model="radio"></qk-radio>
+      <qk-radio label="2" v-model="radio"></qk-radio>
     </div>
   </div>
 </template>
@@ -96,7 +100,8 @@
 export default {
   data() {
     return {
-      input1: ""
+      input1: "",
+      radio: ""
     }
   },
   methods: {}

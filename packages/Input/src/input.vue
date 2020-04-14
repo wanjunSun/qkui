@@ -39,6 +39,7 @@
           :disabled="disabled"
           :maxlength="maxlegth"
           :autocomplete="autocomplete"
+          :placeholder="placeholder"
           :rows="rows"
           @keyup.enter="handleEnter"
           @blur="handelBlur"
@@ -202,6 +203,7 @@ export default {
       if (!autosize || this.type === "textarea") {
         return false
       }
+      alert()
       const { minRow, maxRow } = autosize
       this.textareaStyles = calcTextareaHeight(
         this.$refs.textarea,
