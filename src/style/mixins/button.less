@@ -20,7 +20,7 @@
   text-align: center;
   outline: none;
   transition: all .3s;
-  cursor: pointer;
+  cursor: @cursor-pointer;
   .font-css();
   .btn-size(@css-padding-default, @css-font-size, 0);
 
@@ -34,8 +34,7 @@
 
   &.disabled,
   &[disabled] {
-    cursor: rgb(196, 196, 196)3;
-
+    cursor: @cursor-disabled;
     >* {
       pointer-events: none;
     }
@@ -59,13 +58,13 @@
   &.disabled,
   &[disabled],
   fieldset[disabled] & {
-
+    cursor: @cursor-disabled;
     &,
     &:hover,
     &:focus,
     &:active,
     &.active {
-      .btn-color(@color; @backColor; @border);
+      .btn-color(tint(@color,50%), tint(@backColor,50%), tint(@border,50%));
     }
   }
 }
@@ -126,6 +125,10 @@
 //error
 .btn-error {
   .btn-variatio(@css-white, @css-color-error, @css-color-error);
+}
+
+.btn-info {
+  .btn-variatio(@css-white, @css-color-info, @css-color-info)
 }
 
 .btn-text {

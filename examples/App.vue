@@ -6,6 +6,7 @@
     <qk-button type="primary">primary</qk-button>
     <qk-button type="success">成功</qk-button>
     <qk-button type="warning">警告</qk-button>
+    <qk-button type="info">信息</qk-button>
     <qk-button type="error">失败</qk-button>
     <qk-button type="text">link</qk-button>
     <qk-button type="primary" size="small">小</qk-button>
@@ -90,9 +91,21 @@
       >
       </qk-input>
 
-      <h1>radio</h1>
-      <qk-radio label="1" v-model="radio"></qk-radio>
-      <qk-radio label="2" v-model="radio"></qk-radio>
+      <h1>radio | group</h1>
+
+      <qk-radio label="2" v-model="radio1" size="small">小按钮</qk-radio>
+      <qk-radio label="2" v-model="radio1">默认按钮</qk-radio>
+      <qk-radio label="2" v-model="radio1" size="large">大按钮</qk-radio>
+      <qk-radio label="2" v-model="radio1" border>带边框</qk-radio>
+      <qk-radio-group v-model="radio" vertical>
+        <qk-radio label="1">按钮组1</qk-radio>
+        <qk-radio label="2">按钮组2</qk-radio>
+      </qk-radio-group>
+      <qk-radio-group v-model="radio">
+        <qk-radio label="1">按钮组1</qk-radio>
+        <qk-radio label="2">按钮组2</qk-radio>
+      </qk-radio-group>
+      <!-- <qk-radio label="2" v-model="radio">cs1</qk-radio> -->
     </div>
   </div>
 </template>
@@ -101,10 +114,15 @@ export default {
   data() {
     return {
       input1: "",
-      radio: ""
+      radio: "",
+      radio1: "",
     }
   },
-  methods: {}
+  methods: {
+    testChange(vale) {
+      console.log("object :", vale)
+    },
+  },
 }
 </script>
 <style></style>

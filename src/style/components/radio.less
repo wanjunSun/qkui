@@ -1,6 +1,7 @@
 @radio-prefix: ~"@{css-prefix}radio";
 @radio-prefix-inner :~"@{radio-prefix}-inner";
-@radio-prefix-input :~"@{radio-prefix}-input";
+@radio-prefix-wrap :~"@{radio-prefix}-wrap";
+
 
 .@{radio-prefix} {
   display: inline-block;
@@ -9,7 +10,13 @@
   position: relative;
   line-height: 1;
   vertical-align: middle;
-  cursor: @cursor-pointer;
+
+  &:hover {
+    .@{radio-prefix-inner} {
+      box-shadow: 0 0 5px 1px tint(@css-color-primary, 30%);
+    }
+  }
+
 
   &-inner {
     display: inline-block;
@@ -25,19 +32,22 @@
     &:after {
       content: "";
       position: absolute;
-      width: 5px;
-      height: 5px;
+      width: 7px;
+      height: 7px;
       left: 3px;
       top: 3px;
       border-radius: @css-radius-default;
       display: table;
       border-top: 0;
       border-left: 0;
-      background-color:  @css-white;
+      background-color: @css-white;
       opacity: 0;
       transition: all .2s ease-in-out;
+
       // transform: scale(0);
     }
+
+
 
   }
 
@@ -68,7 +78,7 @@
     right: 0;
     z-index: 1;
     opacity: 0;
-    cursor: pointer;
+    cursor: @cursor-pointer;
   }
 
   &-wrap {
@@ -82,12 +92,83 @@
 
     &-disabled {
       cursor: @cursor-disabled;
+
+      .@{radio-prefix-inner} {
+        border-color: @css-input-disabled;
+        background-color: @css-input-disabled;
+      }
+
+      &>span {
+        color: @css-input-disabled;
+      }
+
+      .@{radio-prefix}-input {
+        cursor: @cursor-disabled;
+      }
+    }
+
+    &-border {
+      border: 1px solid @css-color-info;
+      padding: @radio-border-padding;
+
+      &-checked {
+        border: 1px solid @css-color-primary;
+      }
+
+      &:active,
+      &:visited {
+        border: 1px solid @css-color-primary;
+      }
     }
   }
 
   &-focus {
     box-shadow: 0 0 0 2px fade(@css-color-primary, 20%);
     z-index: 1;
+  }
+
+  &-group {
+    display: inline-block;
+    font-size: @css-font-size;
+    vertical-align: middle;
+
+    &-vertical {
+      .@{radio-prefix}-wrap {
+        display: block;
+        height: 25px;
+        line-height: 25px;
+      }
+    }
+  }
+
+  &-small {
+    font-size: @css-font-size-small;
+
+    & .@{radio-prefix-inner} {
+      width: 12px;
+      height: 12px;
+
+      &::after {
+        width: 6px;
+        height: 6px;
+        left: 2px;
+        top: 2px;
+      }
+    }
+  }
+
+  &-large {
+    font-size: @css-font-size-large;
+
+    & .@{radio-prefix-inner} {
+      width: 16px;
+      height: 16px;
+
+      &::after {
+        width: 8px;
+        height: 8px;
+      }
+    }
   }
 }
 

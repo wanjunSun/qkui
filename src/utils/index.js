@@ -64,17 +64,33 @@ export function findChilds(context, componentName) {
 /**
  * @author: wanjunSun
  * @description: 寻找到所有同级元素
- * @param {context:当前元素,componentName:元素名称,containSelf: 是否包含自己}
+ * @param {context:当前元素,componentName:元素名称,containSelf: 包含自己}
  * @return:返回子级
  * @Date: 2020-03-30 14:58:26
  */
-export function findWithComponent(context, componentName, containSelf = true) {
+export function findWithComponent(context, componentName, containSelf = false) {
   //获取兄弟元素
-  let res = context.$parent.$children.filter(item => {
+  let res = context.$parent.$children.filter((item) => {
     return item.$options.name === componentName
   })
   //寻找自己的index 如果相同去重
-  let index = res.findIndex(item => item._uid === context._uid)
-  if (containSelf) res.splice(index, 1)
+  let index = res.findIndex((item) => item._uid === context._uid)
+  if (!containSelf) res.splice(index, 1)
   return res
+}
+
+/**
+ * @author: wanjunSun
+ * @description:
+ * @param {context:本身元素,componentName:需要找到的元素名称}
+ * @return:返回寻找到的元素
+ * @Date: 2020-04-18 13:39:44
+ */
+
+export function findDemoDownward(context, componentName) {
+  return context.$children.reduce((components, child) => {
+    if (child.$options.name === componentName) components.push(child)
+    const foundChilds = findDemoDownward(child, componentName)
+    return components.concat(foundChilds)
+  }, [])
 }

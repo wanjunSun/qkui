@@ -15,31 +15,31 @@ export default {
       validator(value) {
         return oneOf(value, [
           "primary",
-          // "ghost",
+          "info",
           // "dashed",
           "text",
           "success",
           "warning",
           "error",
-          "default"
+          "default",
         ])
-      }
+      },
     },
     disabled: Boolean,
     long: {
       type: Boolean,
-      default: false
+      default: false,
     },
     size: {
       validator(value) {
         return oneOf(value, ["small", "large", "default"])
-      }
+      },
     },
     shape: {
       validator(value) {
         return oneOf(value, ["circle"])
-      }
-    }
+      },
+    },
   },
   computed: {
     classes() {
@@ -49,15 +49,15 @@ export default {
           [`${prefixCls}-${this.type}`]: !!this.type,
           [`${prefixCls}-long`]: this.long,
           [`${prefixCls}-${this.size}`]: !!this.size,
-          [`${prefixCls}-${this.shape}`]: !!this.shape
-        }
+          [`${prefixCls}-${this.shape}`]: !!this.shape,
+        },
       ]
-    }
+    },
   },
   methods: {
     onClick() {
       this.$emit("click")
-    }
-  }
+    },
+  },
 }
 </script>
