@@ -21,6 +21,9 @@
   outline: none;
   transition: all .3s;
   cursor: @cursor-pointer;
+  position: relative;
+  overflow: hidden;
+  .btn-animation();
   .font-css();
   .btn-size(@css-padding-default, @css-font-size, 0);
 
@@ -35,6 +38,7 @@
   &.disabled,
   &[disabled] {
     cursor: @cursor-disabled;
+
     >* {
       pointer-events: none;
     }
@@ -46,25 +50,26 @@
   .btn-color(@color, @backColor, @border);
 
   &:hover {
-    .btn-color(tint(@color, 20%); shade(@backColor, 10%); tint(@border, 20%));
+    .btn-color(tint(@color, 20%); shade(@backColor, 3%); tint(@border, 20%));
     border-radius: @css-radius-default;
   }
 
   &:active,
   &.active {
-    .btn-color(tint(@color, 5%); shade(@backColor, 5%); tint(@border, 5%));
+    .btn-color(tint(@color, 5%); shade(@backColor, 3%); tint(@border, 5%));
   }
 
   &.disabled,
   &[disabled],
   fieldset[disabled] & {
     cursor: @cursor-disabled;
+
     &,
     &:hover,
     &:focus,
     &:active,
     &.active {
-      .btn-color(tint(@color,50%), tint(@backColor,50%), tint(@border,50%));
+      .btn-color(tint(@color, 50%), tint(@backColor, 50%), tint(@border, 50%));
     }
   }
 }
@@ -128,7 +133,7 @@
 }
 
 .btn-info {
-  .btn-variatio(@css-white, @css-color-info, @css-color-info)
+  .btn-variatio(@css-white, @css-color-info, @css-color-info);
 }
 
 .btn-text {
