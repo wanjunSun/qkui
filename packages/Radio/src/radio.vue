@@ -118,6 +118,7 @@ export default {
           [`${perfixCls}-${this.size}`]: !!this.size,
           [`${perfixCls}-wrap-border`]: this.border,
           [`${perfixCls}-wrap-border-checked`]: this.active,
+          [`${perfixCls}-wrap-checked`]: this.currentValue,
         },
       ]
     },

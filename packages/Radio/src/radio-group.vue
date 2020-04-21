@@ -6,8 +6,9 @@
 const perfixCls = "qk-radio-group"
 import emitter from "../../../src/mixins/emitter"
 import { oneOf, findDemoDownward } from "../../../src/utils"
+let i = 0
 const now = Date.now()
-const uuid = () => `qkRadio_${now}`
+const uuid = () => `qkRadio_${now}_${i++}`
 export default {
   name: "qkRadioGroup",
   mixins: [emitter],
@@ -39,6 +40,7 @@ export default {
         `${perfixCls}`,
         {
           [`${perfixCls}-vertical`]: this.vertical,
+          [`${perfixCls}-${this.type}`]: this.type,
         },
       ]
     },
