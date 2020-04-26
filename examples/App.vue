@@ -107,6 +107,9 @@
         <qk-radio label="3">按钮组3</qk-radio>
       </qk-radio-group>
       <!-- <qk-radio label="2" v-model="radio">cs1</qk-radio> -->
+
+      <h1>checkbox | group</h1>
+      <qk-checkbox v-model="checkbox1"></qk-checkbox>
     </div>
   </div>
 </template>
@@ -117,6 +120,7 @@ export default {
       input1: "",
       radio: "",
       radio1: "",
+      checkbox1: "",
     }
   },
   mounted() {},
