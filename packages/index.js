@@ -20,6 +20,7 @@ const components = [
   QKRadio,
   QKRadio.Group,
   QKCheckbox,
+  QKCheckbox.Group,
 ]
 // 定义 install 方法，接收 Vue 作为参数
 const install = function(Vue) {

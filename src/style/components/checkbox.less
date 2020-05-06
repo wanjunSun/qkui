@@ -22,7 +22,67 @@
 
   &:hover {
     .@{checkbox-prefix-inner} {
-      border-color: #e3e3e3;
+      border-color: @css-color-primary;
+      background-color: tint(@css-color-primary, 85%);
+    }
+  }
+
+  &-large {
+
+    & .@{checkbox-prefix-inner} {
+      width: 16px;
+      height: 16px;
+
+      &::after {
+        width: 6px;
+        height: 10px;
+      }
+    }
+
+    .@{checkbox-prefix}-checked {
+      .@{checkbox-prefix-inner} {
+        &::after {
+          width: 6px;
+          height: 10px;
+        }
+      }
+    }
+
+    .@{checkbox-prefix}-indeterminate {
+      .@{checkbox-prefix-inner}::after {
+        width: 10px;
+        top: 6px;
+      }
+    }
+  }
+
+  &-small {
+    font-size: 12px;
+
+    & .@{checkbox-prefix-inner} {
+      width: 12px;
+      height: 12px;
+
+      &::after {
+        top: 0;
+        left: 3px;
+      }
+    }
+
+    .@{checkbox-prefix}-checked {
+      .@{checkbox-prefix-inner} {
+        &::after {
+          top: 0;
+          left: 3px;
+        }
+      }
+    }
+
+    .@{checkbox-prefix}-indeterminate {
+      .@{checkbox-prefix-inner}::after {
+        width: 6px;
+        top: 4px;
+      }
     }
   }
 
@@ -33,10 +93,11 @@
     position: relative;
     top: 0;
     left: 0;
-    border: 1px solid @css-color-info;
+    // border: 1px solid @css-color-info;
     border-radius: 2px;
     background-color: @css-white;
     transition: all .3s;
+    border: 1px solid tint(@css-color-primary, 50%);
 
     &::after {
       content: "";
@@ -75,6 +136,8 @@
     &:hover {
       .@{checkbox-prefix-inner} {
         border-color: @css-color-primary;
+        background-color: @css-color-primary;
+
       }
     }
 
@@ -155,8 +218,52 @@
     }
   }
 
+  //半选
+  &-indeterminate {
+    .@{checkbox-prefix-inner}::after {
+      content: '';
+      width: 8px;
+      height: 1px;
+      transform: scale(1);
+      position: absolute;
+      left: 2px;
+      top: 5px;
+    }
+
+    &:hover {
+      .@{checkbox-prefix-inner} {
+        border-color: @css-color-primary;
+      }
+    }
+
+    .@{checkbox-prefix-inner} {
+      background-color: @css-color-primary;
+      border-color: @css-color-primary;
+    }
+
+    .@{checkbox-prefix}-disabled {
+      .@{checkbox-prefix-inner} {
+        background-color: #f3f3f3;
+        border-color: @css-color-disable;
+
+        &::after {
+          border-color: @css-color-disable;
+        }
+      }
+
+    }
+  }
+
   .@{checkbox-prefix}-wapper+span,
   .@{checkbox-prefix}+span {
     margin-right: 4px;
+  }
+
+  &-group {
+    font-size: @css-font-size;
+
+    &-item {
+      display: inline-block;
+    }
   }
 }
