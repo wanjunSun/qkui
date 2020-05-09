@@ -118,6 +118,9 @@
         <qk-checkbox label="苹果">苹果</qk-checkbox>
       </qk-checkbox-group>
       {{ checkbox2 }}
+
+      <h1>number</h1>
+      <qk-number></qk-number>
     </div>
   </div>
 </template>

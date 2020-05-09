@@ -1,0 +1,140 @@
+@number-prefix-cls: ~"@{css-prefix}number";
+
+.handler-disabled() {
+  opacity: .72;
+  color: #f3f3f3;
+  cursor: @cursor-disabled;
+}
+
+.@{number-prefix-cls} {
+  @radius-warp: 0 @css-radius-default @css-radius-default 0;
+  .input;
+  margin: 0;
+  padding: 0;
+  width: 80px;
+  height: @input-height-default;
+  line-height: @input-height-default;
+  vertical-align: middle;
+  border: 1px solid @css-color-info;
+  border-radius: @css-radius-default;
+  overflow: hidden;
+
+  &-handler {
+    display: block;
+    width: 100%;
+    height: @input-height-default / 2;
+    line-height: 0;
+    text-align: center;
+    overflow: hidden;
+    color: #999;
+    position: relative;
+
+    &:hover &-up-inner,
+    &:hover &-down-inner {
+      color: tint(@css-color-primary, 20%);
+    }
+
+    &-warp {
+      width: 22px;
+      height: 100%;
+      border-left: 1px solid @input-border-color;
+      border-radius: @radius-warp;
+      background-color: @css-white;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      transition: opacity @transition-time-default ease-in-out;
+    }
+
+    &-up {
+      cursor: @cursor-pointer;
+
+      &-inner {
+        top: 1px;
+      }
+    }
+
+    &-down {
+      border-top: 1px solid @input-border-color;
+      top: -1px;
+      cursor: @cursor-pointer;
+    }
+
+    &-up-inner,
+    &-down-inner {
+      width: 12px;
+      height: 12px;
+      line-height: 12px;
+      font-size: 14px;
+      color: #999;
+      user-select: none;
+      position: absolute;
+      right: 4px;
+      transition: all @transition-time-default linear;
+    }
+  }
+
+  &:hover {
+    .hover();
+  }
+
+  &-focused {
+    .active();
+  }
+
+  &-disabled {
+    .disabled();
+  }
+
+  &:hover &-handler-warp {
+    opacity: 1;
+  }
+
+  &-input-warp {
+    overflow: hidden;
+    height: @input-height-default;
+  }
+
+  &-input {
+    width: 100%;
+    height: @input-height-default;
+    line-height: @input-height-default;
+    padding: 0 7px;
+    text-align: left;
+    outline: 0;
+    color: #666;
+    border: 0;
+    border-radius: @css-radius-default;
+    transition: all @transition-time-default linear;
+
+    &[disabled] {
+      .disabled()
+    }
+  }
+
+  &-handler-down-disabled,
+  &-handler-up-disabled,
+  &-disabled {
+
+    .@{number-prefix-cls}-handler-down-inner,
+    .@{number-prefix-cls}-handler-up-inner {
+      .handler-disabled();
+    }
+  }
+
+  &-disabled {
+    .@{number-prefix-cls}-input {
+      opacity: .72;
+      cursor: @cursor-disabled;
+      background-color: #f3f3f3;
+    }
+
+    .@{number-prefix-cls}-handler-wrap {
+      display: none;
+    }
+
+    .@{number-prefix-cls}-handler {
+      .handler-disabled();
+    }
+  }
+}
