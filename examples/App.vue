@@ -120,7 +120,7 @@
       {{ checkbox2 }}
 
       <h1>number</h1>
-      <qk-number></qk-number>
+      <qk-number v-model="numbers"></qk-number>
     </div>
   </div>
 </template>
@@ -133,6 +133,7 @@ export default {
       radio1: "",
       checkbox1: "",
       checkbox2: [],
+      numbers: 0,
     }
   },
   mounted() {},
