@@ -1,0 +1,164 @@
+@notice-prefix-cls :~"@{css-prefix}notice";
+@icon-prefix-cls: ~"@{css-prefix}icon";
+
+@marginLeft: 51px;
+@notic-base-width: 300px;
+
+.close-base(@top: 0, @icon-font-size: 22px) {
+  font-size: @icon-font-size;
+  color: #999;
+  transition: color .3s ease;
+  position: relative;
+  top: @top;
+
+  &:hover {
+    color: #444;
+  }
+}
+
+.@{notice-prefix-cls} {
+  width: @notic-base-width;
+  margin-right: 12px;
+  position: fixed;
+  z-index: 999;
+
+  &-content-with-icon {
+    margin-left: @marginLeft;
+  }
+
+  &-with-desc &-with-icon &-title {
+    margin-left: @marginLeft;
+  }
+
+  &-notice {
+    margin-bottom: 10px;
+    padding: 16px;
+    border-radius: @css-radius-size-small;
+    box-shadow: 0 0 5px #e3e3e3;
+    background-color: #fff;
+    line-height: 1;
+    position: relative;
+    overflow: hidden;
+
+    &-close {
+      position: absolute;
+      right: 16px;
+      top: 15px;
+      color: #999;
+      outline: none;
+
+      i {
+        .close-base(-3px)
+      }
+    }
+
+    &-content-with-render {
+      .qk-notice-desc {
+        display: none;
+      }
+    }
+
+    &-with-desc {
+      .@{notice-prefix-cls}-notice-colse {
+        top: 11px;
+      }
+    }
+  }
+
+  &-content-with-render-notitle {
+    margin-left: 26px;
+  }
+
+  &-title {
+    font-size: 12px;
+    color: #333;
+    text-align: justify;
+    line-height: 1.5;
+  }
+
+  &-with-desc &-title {
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+
+  &-desc {
+    font-size: 12px;
+    color: #333;
+    text-align: justify;
+    line-height: 1.5;
+  }
+
+  &-with-desc&-with-icon &-desc {
+    margin-left: 51px;
+  }
+
+  &-with-icon &-title {
+    margin-left: 26px;
+  }
+
+  &-icon {
+    position: absolute;
+    left: 20px;
+
+    &-success {
+      color: @css-color-sucess;
+    }
+
+    &-error {
+      color: @css-color-error;
+    }
+
+    &-info {
+      color: @css-color-info;
+    }
+
+    &-warning {
+      color: @css-color-warning;
+    }
+  }
+
+  &-with-desc &-icon {
+    font-size: 36px;
+  }
+
+  &-custom-content {
+    &::after {
+      content: "";
+      display: block;
+      width: 4px;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+
+  &-with-normal {
+    &:after {
+      background: @css-color-primary;
+    }
+  }
+
+  &-with-info {
+    &:after {
+      background: @css-color-primary;
+    }
+  }
+
+  &-with-success {
+    &:after {
+      background: @css-color-sucess;
+    }
+  }
+
+  &-with-warning {
+    &:after {
+      background: @css-color-warning;
+    }
+  }
+
+  &-with-error {
+    &:after {
+      background: @css-color-error;
+    }
+  }
+}
