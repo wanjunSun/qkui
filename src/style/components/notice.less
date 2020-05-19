@@ -1,7 +1,7 @@
 @notice-prefix-cls :~"@{css-prefix}notice";
 @icon-prefix-cls: ~"@{css-prefix}icon";
 
-@marginLeft: 51px;
+@marginLeft: 40px;
 @notic-base-width: 300px;
 
 .close-base(@top: 0, @icon-font-size: 22px) {
@@ -32,7 +32,7 @@
 
   &-notice {
     margin-bottom: 10px;
-    padding: 16px;
+    padding: 8px;
     border-radius: @css-radius-size-small;
     box-shadow: 0 0 5px #e3e3e3;
     background-color: #fff;
@@ -42,8 +42,8 @@
 
     &-close {
       position: absolute;
-      right: 16px;
-      top: 15px;
+      right: 8px;
+      top: 10px;
       color: #999;
       outline: none;
 
@@ -70,35 +70,36 @@
   }
 
   &-title {
-    font-size: 12px;
+    font-size: 18px;
     color: #333;
     text-align: justify;
     line-height: 1.5;
+    letter-spacing: 2px;
   }
 
   &-with-desc &-title {
     font-weight: bold;
-    margin-bottom: 8px;
+    margin-bottom: 5px;
   }
 
   &-desc {
-    font-size: 12px;
+    font-size: 14px;
     color: #333;
     text-align: justify;
     line-height: 1.5;
   }
 
   &-with-desc&-with-icon &-desc {
-    margin-left: 51px;
+    margin-left: @marginLeft;
   }
 
   &-with-icon &-title {
-    margin-left: 26px;
+    margin-left: @marginLeft;
   }
 
   &-icon {
     position: absolute;
-    left: 20px;
+    left: 5px;
 
     &-success {
       color: @css-color-sucess;
@@ -118,7 +119,9 @@
   }
 
   &-with-desc &-icon {
-    font-size: 36px;
+    .qk-icon {
+      font-size: 38px;
+    }
   }
 
   &-custom-content {

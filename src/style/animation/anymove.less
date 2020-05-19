@@ -1,0 +1,57 @@
+.move-motion(@className, @keyframeName) {
+  .make-motion(@className, @keyframeName);
+
+  .@{className}-enter-active,
+  .@{className}-appear {
+    opacity: 0;
+    animation-timing-function: ease-in-out;
+  }
+
+  .@{className}-leave-active {
+    animation-timing-function: ease-in-out;
+  }
+}
+
+
+.move-motion(move-notice, qkMoveNotice);
+@import '../components/notice.less';
+
+@keyframes qkMoveNoticeIn {
+  0% {
+    opacity: 0;
+    transform-origin: 0 0;
+    transform: translateX(100%);
+  }
+
+  100% {
+    opacity: 1;
+    transform-origin: 0 0;
+    transform: translateX(0%);
+  }
+}
+
+@keyframes qkMoveNoticeOut {
+  0% {
+    transform-origin: 0 0;
+    transform: translateX(0%);
+    opacity: 1;
+  }
+
+  70% {
+    transform-origin: 0 0;
+    transform: translateX(100%);
+    height: auto;
+    padding: 8px;
+    margin-bottom: 5px;
+    opacity: 0;
+  }
+
+  100% {
+    transform-origin: 0 0;
+    transform: translateX(100%);
+    height: 0;
+    padding: 0;
+    margin-bottom: 0;
+    opacity: 0;
+  }
+}

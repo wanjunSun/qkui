@@ -1,12 +1,12 @@
 <template>
-  <transition :name="transitionName">
+  <transition :name="transitionName" @leave="handelLeave" @enter="handelEnter">
     <div :class="classes" :style="styles">
       <template>
         <div :class="contentClasses" ref="content" v-html="content"></div>
         <div :class="contentWithIcon">
-          <render-cell :render="render"></render-cell>
+          <render-cell :render="renderFunc"></render-cell>
         </div>
-        <a :class="[baseClass + '-colse']" @click="close" v-if="closable">
+        <a :class="[baseClass + '-close']" @click="close" v-if="closable">
           <i class="qk-icon qk-icon-close"></i>
         </a>
       </template>
@@ -17,9 +17,9 @@
 <script>
 import RenderCell from "./render"
 export default {
-  components: [RenderCell],
+  components: { RenderCell },
   props: {
-    perfixCls: {
+    prefixCls: {
       type: String,
       default: "",
     },
@@ -37,9 +37,7 @@ export default {
     styles: {
       type: Object,
       default: function() {
-        return {
-          right: "50%",
-        }
+        return {}
       },
     },
     closable: {
@@ -59,22 +57,22 @@ export default {
     },
   },
   data() {
-    return { thDesc: false }
+    return { withDesc: false }
   },
   computed: {
     baseClass() {
-      return `${this.perfixCls}-notice`
+      return `${this.prefixCls}-notice`
     },
     renderFunc() {
       return this.render || function() {}
     },
     classes() {
       return [
-        this.classes,
+        this.baseClass,
         {
-          [`${this.classes}`]: !!this.className,
-          [`${this.classes}-closable`]: this.closable,
-          [`${this.classes}-with-desc`]: this.withDesc,
+          [`${this.className}`]: !!this.className,
+          [`${this.baseClass}-closable`]: this.closable,
+          [`${this.baseClass}-with-desc`]: this.withDesc,
         },
       ]
     },
@@ -88,9 +86,9 @@ export default {
     },
     contentWithIcon() {
       return [
-        this.withIcon ? `${this.perfixCls}-content-with-icon` : "",
+        this.withIcon ? `${this.prefixCls}-content-with-icon` : "",
         !this.hasTitle && this.withIcon
-          ? `${this.perfixCls}-content-with-render-notitle`
+          ? `${this.prefixCls}-content-with-render-notitle`
           : "",
       ]
     },
@@ -127,8 +125,7 @@ export default {
         this.close()
       }, this.duration * 1000)
     }
-
-    if (this.perfixCls === "qk-notive") {
+    if (this.prefixCls === "qk-notice") {
       let desc = this.$refs.content.querySelectorAll(
         `.${this.prefixCls}-desc`
       )[0]

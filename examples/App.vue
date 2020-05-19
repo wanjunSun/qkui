@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <h1>按钮</h1>
-    <qk-button>默认</qk-button>
+    <qk-button @click="openNotice">默认</qk-button>
     <qk-button disabled type="primary">禁用</qk-button>
     <qk-button type="primary">primary</qk-button>
     <qk-button type="success">成功</qk-button>
@@ -140,6 +140,13 @@ export default {
   methods: {
     testChange(vale) {
       console.log("object :", vale)
+    },
+    openNotice() {
+      this.$qkNotice.error({
+        title: "测试",
+        desc: "无滴滴滴",
+        duration: 0,
+      })
     },
   },
 }

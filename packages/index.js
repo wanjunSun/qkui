@@ -7,6 +7,7 @@ import QKInput from "./Input"
 import QKRadio from "./Radio"
 import QKCheckbox from "./Checkbox"
 import QKNumber from "./Number"
+import QKNotice from "./Notice"
 import "../src/style/index.less"
 // 所有组件列表
 const components = [
@@ -22,7 +23,8 @@ const components = [
   QKRadio.Group,
   QKCheckbox,
   QKCheckbox.Group,
-  QKNumber
+  QKNumber,
+  QKNotice,
 ]
 // 定义 install 方法，接收 Vue 作为参数
 const install = function(Vue) {
@@ -36,6 +38,9 @@ const install = function(Vue) {
   components.map((component) => Vue.component(component.name, component))
   // 下面这个写法也可以
   // components.map(component => Vue.use(component))
+
+  Vue.prototype.$qkNotice = QKNotice
+
 }
 
 // 检测到 Vue 才执行，毕竟我们是基于 Vue 的

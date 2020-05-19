@@ -22,7 +22,7 @@
 
 <script>
 import DomPrompt from "./domPrompt"
-const perfixCls = "qk-notification"
+const prefixCls = "qk-notification"
 let seed = 0
 const now = Date.now()
 function Uuid() {
@@ -31,9 +31,9 @@ function Uuid() {
 export default {
   components: { DomPrompt },
   props: {
-    perfixCls: {
+    prefixCls: {
       type: String,
-      default: perfixCls,
+      default: prefixCls,
     },
     styles: {
       type: Object,
@@ -55,7 +55,7 @@ export default {
   computed: {
     classes() {
       return [
-        `${this.perfixCls}`,
+        `${this.prefixCls}`,
         {
           [`${this.className}`]: !!this.className,
         },
