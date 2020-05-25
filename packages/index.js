@@ -1,6 +1,6 @@
 import QKButton from "./Button"
 import QKRow from "./Grid"
-import QKTag from "./Tag"
+import QKTag from "./tag"
 import QKIcon from "./icon"
 import QKAlert from "./Alert"
 import QKInput from "./Input"

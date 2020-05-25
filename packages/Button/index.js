@@ -1,4 +1,4 @@
-import QKButton from "./src/button.vue"
+import QKButton from "./src/Button.vue"
 import QKButtonGroup from "./src/button-group.vue"
 
 QKButton.Group = QKButtonGroup
