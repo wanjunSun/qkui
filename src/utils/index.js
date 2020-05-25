@@ -8,7 +8,7 @@ export function oneOf(value, validList) {
 }
 
 /**
- * @author: wanjunSun
+ * @author: qk
  * @description: 寻找指定元素的父级元素
  * @param { context :当前元素,componentName: 需要寻找到的元素名称,componentNames:数组}
  * @return:返回父级元素
@@ -34,7 +34,7 @@ export function findFComponent(context, componentName, componentNames) {
 }
 
 /**
- * @author: wanjunSun
+ * @author: qk
  * @description: 寻找所有子级元素
  * @param {context:当前元素,componentName:元素名称}
  * @return:返回子级
@@ -62,7 +62,7 @@ export function findChilds(context, componentName) {
 }
 
 /**
- * @author: wanjunSun
+ * @author: qk
  * @description: 寻找到所有同级元素
  * @param {context:当前元素,componentName:元素名称,containSelf: 包含自己}
  * @return:返回子级
@@ -80,7 +80,7 @@ export function findWithComponent(context, componentName, containSelf = false) {
 }
 
 /**
- * @author: wanjunSun
+ * @author: qk
  * @description:
  * @param {context:本身元素,componentName:需要找到的元素名称}
  * @return:返回寻找到的元素

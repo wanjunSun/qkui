@@ -1,0 +1,80 @@
+@message-prefix-cls: ~"@{css-prefix}message";
+@icon-prefix-cls: ~"@{css-prefix}icon";
+
+.@{message-prefix-cls} {
+  font-size: @css-font-size;
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  top: 16px;
+  left: 0;
+  pointer-events: none;
+
+  &-notice {
+    padding: 6px;
+    text-align: center;
+    transition: height .3s ease-in-out, padding .3s ease-in-out;
+
+    &:first-child {
+      margin-top: -8px;
+    }
+
+    &-close {
+      position: absolute;
+      right: 4px;
+      top: 9px;
+      outline: none;
+
+      i.@{icon-prefix-cls} {
+        .close-base(-3px)
+      }
+    }
+
+    &-content {
+      display: inline-block;
+      pointer-events: all;
+      padding: 8px 16px;
+      border-radius: @css-radius-default;
+      box-shadow: 0 0 5px #807d7d;
+      background-color: #fff;
+      position: relative;
+
+      &-text {
+        display: inline-block;
+      }
+    }
+
+    &-closable {
+      .@{message-prefix-cls}-notice-content-text {
+        padding-right: 15px;
+      }
+    }
+  }
+
+  &-success .@{icon-prefix-cls} {
+    color: @css-color-sucess;
+  }
+
+  &-error .@{icon-prefix-cls} {
+    color: @css-color-error;
+  }
+
+  &-info .@{icon-prefix-cls} {
+    color: @css-color-info;
+  }
+
+  &-loading .@{icon-prefix-cls} {
+    color: @css-color-primary;
+  }
+
+  &-warning .@{icon-prefix-cls} {
+    color: @css-color-warning;
+  }
+
+  .@{icon-prefix-cls} {
+    margin-right: 8px;
+    font-size: 16px;
+    top: 1px;
+    position: relative;
+  }
+}

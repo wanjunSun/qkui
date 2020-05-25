@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <h1>按钮</h1>
-    <qk-button @click="openNotice">默认</qk-button>
+    <qk-button>默认</qk-button>
     <qk-button disabled type="primary">禁用</qk-button>
     <qk-button type="primary">primary</qk-button>
     <qk-button type="success">成功</qk-button>
@@ -121,9 +121,40 @@
 
       <h1>number</h1>
       <qk-number v-model="numbers"></qk-number>
+
+      <h1>notice</h1>
+      <qk-button @click="openNotice('info')" type="info"
+        >测试Notice信息</qk-button
+      >
+      <qk-button @click="openNotice('success')" type="success"
+        >测试Notice成功</qk-button
+      >
+      <qk-button @click="openNotice('warning')" type="warning"
+        >测试Notice警告</qk-button
+      >
+      <qk-button @click="openNotice('error')" type="error"
+        >测试Notice失败</qk-button
+      >
+      <h1>message</h1>
+      <qk-button @click="openMessage('info')" type="info"
+        >测试message信息</qk-button
+      >
+      <qk-button @click="openMessage('success')" type="success"
+        >测试message成功</qk-button
+      >
+      <qk-button @click="openMessage('warning')" type="warning"
+        >测试message警告</qk-button
+      >
+      <qk-button @click="openMessage('error')" type="error"
+        >测试message失败</qk-button
+      >
+      <qk-button @click="openMessage('loading')" type="info"
+        >测试loading</qk-button
+      >
     </div>
   </div>
 </template>
+
 <script>
 export default {
   data() {
@@ -141,11 +172,15 @@ export default {
     testChange(vale) {
       console.log("object :", vale)
     },
-    openNotice() {
-      this.$qkNotice.error({
-        title: "测试",
-        desc: "无滴滴滴",
-        duration: 0,
+    openNotice(name) {
+      this.$qkNotice[`${name}`]({
+        title: "臭弟弟",
+        desc: "你是个弟弟 弟中弟",
+      })
+    },
+    openMessage(name) {
+      this.$qkMessage[`${name}`]({
+        content: "测试",
       })
     },
   },

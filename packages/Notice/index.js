@@ -5,7 +5,7 @@ const iconPrefixCls = "qk-icon"
 const prefixCode = "qk_notice_code"
 
 let top = 24
-let defaultDuration = 4.5
+let defaultDuration = 3
 let noticeInstance
 let name = 1
 

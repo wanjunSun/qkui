@@ -1,6 +1,6 @@
 import QKButton from "./Button"
 import QKRow from "./Grid"
-import QKTag from "./tag"
+import QKTag from "./Tag"
 import QKIcon from "./icon"
 import QKAlert from "./Alert"
 import QKInput from "./Input"
@@ -8,6 +8,7 @@ import QKRadio from "./Radio"
 import QKCheckbox from "./Checkbox"
 import QKNumber from "./Number"
 import QKNotice from "./Notice"
+import QKMessage from "./Massage"
 import "../src/style/index.less"
 // 所有组件列表
 const components = [
@@ -25,6 +26,7 @@ const components = [
   QKCheckbox.Group,
   QKNumber,
   QKNotice,
+  QKMessage,
 ]
 // 定义 install 方法，接收 Vue 作为参数
 const install = function(Vue) {
@@ -40,7 +42,7 @@ const install = function(Vue) {
   // components.map(component => Vue.use(component))
 
   Vue.prototype.$qkNotice = QKNotice
-
+  Vue.prototype.$qkMessage = QKMessage
 }
 
 // 检测到 Vue 才执行，毕竟我们是基于 Vue 的

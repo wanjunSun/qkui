@@ -6,6 +6,13 @@
   "description": "自己编写一套ui",
   "glyphs": [
     {
+      "icon_id": "2861028",
+      "name": "Loading",
+      "font_class": "Loading",
+      "unicode": "e65d",
+      "unicode_decimal": 58973
+    },
+    {
       "icon_id": "11488227",
       "name": "ashbin-fill",
       "font_class": "ashbin-fill",

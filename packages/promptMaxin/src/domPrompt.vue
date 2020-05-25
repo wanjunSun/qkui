@@ -1,7 +1,7 @@
 <template>
   <transition :name="transitionName" @leave="handelLeave" @enter="handelEnter">
     <div :class="classes" :style="styles">
-      <template>
+      <template v-if="type === 'notice'">
         <div :class="contentClasses" ref="content" v-html="content"></div>
         <div :class="contentWithIcon">
           <render-cell :render="renderFunc"></render-cell>
@@ -9,6 +9,17 @@
         <a :class="[baseClass + '-close']" @click="close" v-if="closable">
           <i class="qk-icon qk-icon-close"></i>
         </a>
+      </template>
+      <template v-if="type === 'message'">
+        <div :class="[baseClass + '-content']" ref="content">
+          <div :class="[baseClass + '-content-text']" v-html="content"></div>
+          <div :class="[baseClass + '-content-text']">
+            <render-cell :render="renderFunc"></render-cell>
+          </div>
+          <a :class="[baseClass + '-close']" @click="close" v-if="closable">
+            <i class="qk-icon qk-icon-close"></i>
+          </a>
+        </div>
       </template>
     </div>
   </transition>
@@ -25,12 +36,13 @@ export default {
     },
     duration: {
       type: Number,
-      default: 2,
+      default: 3,
     },
     content: {
       type: String,
       default: "",
     },
+    type: String,
     withIcon: Boolean,
     render: Function,
     hasTitle: Boolean,
