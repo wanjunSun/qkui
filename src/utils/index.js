@@ -94,3 +94,71 @@ export function findDemoDownward(context, componentName) {
     return components.concat(foundChilds)
   }, [])
 }
+
+/**
+ * @author: qk
+ * @description: 向上寻找元素
+ * @param {context:元素本身,componentName:元素名称}
+ * @return: 寻找到的元素合集
+ * @Date: 2020-06-02 11:21:18
+ */
+export function findComponentsUpward(context, componentName) {
+  let parents = []
+  const parent = context.$parent
+  if (parent) {
+    if (parent.$options.name === componentName) parents.push(parent)
+    return parents.concat(findComponentsUpward(parent, componentName))
+  } else {
+    return []
+  }
+}
+
+const trim = function(string) {
+  return (string || "").replace(/^[\s\uFEFF]+|[\s\uFEFF]+$/g, "")
+}
+export function hasClass(el, cls) {
+  if (!el || !cls) return
+  if (cls.indexOf(" ") != -1) throw new Error("样式名称不得包含空格")
+  if (el.classList) return el.classList.contains(cls)
+  else return (" " + el.className + " ").indexOf("" + cls + " ") > 1
+}
+
+export function addClass(el, cls) {
+  if (!el) return
+  let curClass = el.className
+  const classes = (cls || "").split("")
+
+  for (let i = 0, j = classes.length; i < j; i++) {
+    const clsName = classes[i]
+    if (!clsName) continue
+
+    if (el.classList) {
+      el.classList.add(clsName)
+    } else {
+      if (!hasClass(el, className)) {
+        curClass += " " + clsName
+      }
+    }
+  }
+}
+
+export function removeClass(el, cls) {
+  if (!el || !cls) return
+  const classes = cls.split(" ")
+  let curClass = " " + el.className + " "
+
+  for (let i = 0, j = classes.length; i < j; i++) {
+    const clsName = classes[i]
+    if (!clsName) continue
+    if (el.classList) {
+      el.classList.remove(clsName)
+    } else {
+      if (hasClass(el, clsName)) {
+        curClass = curClass.replace(" " + clsName + " ", " ")
+      }
+    }
+  }
+  if (!el.classList) {
+    el.className = trim(curClass)
+  }
+}
