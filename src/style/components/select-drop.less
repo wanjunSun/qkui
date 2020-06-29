@@ -1,0 +1,24 @@
+@select-drop-prefix-cls: ~"@{css-prefix}select-dropdown";
+@transfer-no-max-height: ~"@{css-prefix}transfer-no-max-height";
+
+.@{select-drop-prefix-cls} {
+  width: inherit;
+  max-height: 200px;
+  overflow: auto;
+  margin: 5px 0;
+  padding: 5px 0;
+  background-color: #fff;
+  box-sizing: border-box;
+  border-radius: @css-radius-size-small;
+  box-shadow: @shadow-base;
+  position: absolute;
+  z-index: @zindex-select;
+
+  &-transfer {
+    z-index: @zindex-transfer;
+  }
+
+  &.@{transfer-no-max-height} {
+    max-height: none;
+  }
+}

@@ -1,0 +1,30 @@
+@css-prefix-drop: ~"@{css-prefix}dropdown";
+@drop-item-preifx :~"@{css-prefix-drop}-item";
+
+.@{css-prefix-drop} {
+  display: inline-block;
+  cursor: @cursor-pointer;
+
+  .@{select-drop-prefix-cls} {
+    overflow: hidden;
+    max-height: none;
+  }
+
+  @{css-prefix-drop} {
+    width: 100%;
+  }
+
+  &-rel {
+    position: relative;
+  }
+
+  &-menu {
+    min-width: 100px;
+  }
+
+  &-transfer {
+    width: auto;
+  }
+}
+
+.select-item(@css-prefix-drop, @drop-item-preifx);

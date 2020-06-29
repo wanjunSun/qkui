@@ -9,6 +9,7 @@ import QKCheckbox from "./Checkbox"
 import QKNumber from "./Number"
 import QKNotice from "./Notice"
 import QKMessage from "./Massage"
+import QKDrop from "./Drop"
 import "../src/style/index.less"
 // 所有组件列表
 const components = [
@@ -27,6 +28,9 @@ const components = [
   QKNumber,
   QKNotice,
   QKMessage,
+  QKDrop,
+  QKDrop.item,
+  QKDrop.menu,
 ]
 // 定义 install 方法，接收 Vue 作为参数
 const install = function(Vue) {

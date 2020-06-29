@@ -1,27 +1,68 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-
+import Vue from "vue"
+import VueRouter from "vue-router"
 Vue.use(VueRouter)
 
 const routes = [
+  { path: "/", redirect: "/row" },
   {
-    path: '/',
-    name: 'Home',
-    component: Home
+    path: "/button",
+    name: "button",
+    component: () => import("../views/Button.vue"),
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
+    path: "/row",
+    name: "row",
+    component: () => import("../views/Row.vue"),
+  },
+  {
+    path: "/tag",
+    name: "tag",
+    component: () => import("../views/Tag.vue"),
+  },
+  {
+    path: "/alert",
+    name: "alert",
+    component: () => import("../views/Alert.vue"),
+  },
+  {
+    path: "/input",
+    name: "input",
+    component: (reverse) => require(["../views/Input.vue"], reverse),
+  },
+  {
+    path: "/radio",
+    name: "radio",
+    component: (reverse) => require(["../views/Radio.vue"], reverse),
+  },
+  {
+    path: "/checkbox",
+    name: "checkbox",
+    component: (reverse) => require(["../views/Checkbox.vue"], reverse),
+  },
+  {
+    path: "/number",
+    name: "number",
+    component: (reverse) => require(["../views/Number.vue"], reverse),
+  },
+  {
+    path: "/notice",
+    name: "notice",
+    component: (reverse) => require(["../views/Notice.vue"], reverse),
+  },
+  {
+    path: "/message",
+    name: "message",
+    component: (reverse) => require(["../views/Message.vue"], reverse),
+  },
+  {
+    path: "/drop",
+    name: "drop",
+    component: (reverse) => require(["../views/Drop.vue"], reverse),
+  },
 ]
 
 const router = new VueRouter({
-  routes
+  routes,
 })
 
 export default router

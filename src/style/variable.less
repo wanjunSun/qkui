@@ -8,7 +8,10 @@
 @css-color-info: #b8b8b8;
 @css-white: #fff;
 @css-color-disable: #aca7a7;
-
+@text-color : #495060;
+@link-color : @css-color-primary;
+@link-hover-color : tint(@link-color, 20%);
+@link-active-color : shade(@link-color, 5%);
 //间距
 @css-padding-default: 6px 22px;
 @css-padding-small: 3px 10px;
@@ -51,3 +54,15 @@
 //动画
 @transition-time-default: .3s;
 
+
+// Shadow
+@shadow-color : rgba(0, 0, 0, .2);
+@shadow-base : @shadow-down;
+@shadow-card : 0 1px 1px 0 rgba(0, 0, 0, .1);
+@shadow-up : 0 -1px 6px @shadow-color;
+@shadow-down : 0 1px 6px @shadow-color;
+@shadow-left : -1px 0 6px @shadow-color;
+@shadow-right : 1px 0 6px @shadow-color;
+//zindex
+@zindex-select : 900;
+@zindex-transfer : 1060;
