@@ -59,6 +59,11 @@ const routes = [
     name: "drop",
     component: (reverse) => require(["../views/Drop.vue"], reverse),
   },
+  {
+    path: "/select",
+    name: "select",
+    component: (reverse) => require(["../views/Select.vue"], reverse),
+  },
 ]
 
 const router = new VueRouter({

@@ -1,7 +1,5 @@
-/*
- * @Description: 
- * @Author: wanjunSun
- * @Date: 2020-06-05 13:28:27
- * @LastEditors: wanjunSun
- * @LastEditTime: 2020-06-05 13:28:28
- */ 
+import QKOption from "./src/option.vue"
+import QKSelect from "./src/select.vue"
+QKSelect.Option = QKOption
+
+export default QKSelect

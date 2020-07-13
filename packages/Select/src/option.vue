@@ -5,16 +5,18 @@
     @mousedown.prevent
     @touchstart.prevent
   >
-    <slot>{{ showLbel }}</slot>
+    <slot>{{ showLabel }}</slot>
   </li>
 </template>
 
 <script>
 import Emitter from "../../../src/mixins/emitter"
-import { findFComponent } from "../../../src/utils"
+// import { findFComponent } from "../../../src/utils"
 const prefixCls = "qk-select-option"
 export default {
   name: "qkOption",
+  componentName: "select-item",
+  mixins: [Emitter],
   props: {
     label: {
       type: [String, Number],
@@ -23,10 +25,10 @@ export default {
       type: [String, Number],
       required: true,
     },
-    item: {
+ /*    item: {
       type: Object,
       default: {},
-    },
+    }, */
     disabled: {
       type: Boolean,
       default: false,
@@ -35,6 +37,16 @@ export default {
       type: Boolean,
       default: false,
     },
+    isFocused: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  data() {
+    return {
+      sarchLabel: "",
+      autoComlete: false,
+    }
   },
   computed: {
     classes() {
@@ -42,25 +54,36 @@ export default {
         `${prefixCls}`,
         {
           [`${prefixCls}-disabled`]: this.disabled,
-          [`${prefixCls}-selected`]: this.selected,
+          [`${prefixCls}-selected`]: this.selected && !this.autoComlete,
+          [`${prefixCls}-focus`]: this.isFocused,
         },
       ]
     },
-    showLbel() {
+    showLabel() {
       return this.label ? this.label : this.value
+    },
+    optionLabel() {
+      return (this.$el && this.$el.textContent) || this.label
     },
   },
   methods: {
     select() {
-      let obj = { label: this.label, value: this.value }
-      if (Object.keys(this.item).length !== 0) obj["item"] = this.item
-
-      this.$emit("select", obj)
+      if (this.disabled) return false
+      // let obj = { label: this.label, value: this.value }
+      // if (Object.keys(this.item).length !== 0) obj["item"] = this.item
+      this.dispatch("qkSelect", "select-selected", {
+        value: this.value,
+        label: this.optionLabel,
+      })
+      this.$emit("select-selected", {
+        value: this.value,
+        label: this.optionLabel,
+      })
     },
   },
   mounted() {
-    // let select = findFComponent(this, "qkSelect")
-    // if(select)
+    // const Select = findComponentUpward(this, "qkSelect")
+    // if (Select) this.autoComplete = Select.autoComplete
   },
 }
 </script>

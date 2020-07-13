@@ -1,14 +1,16 @@
 <template>
-  <div id="app"  style="padding:10px">
-      <router-link
-        class="router"
-        :to="'/' + item"
-        v-for="(item, index) in routerList"
-        :key="index"
-        >{{ item }}</router-link
-      >
-      <br>
-    <router-view></router-view>
+  <div id="app" style="padding:10px">
+    <router-link
+      class="router"
+      :to="'/' + item"
+      v-for="(item, index) in routerList"
+      :key="index"
+      >{{ item }}</router-link
+    >
+    <br />
+    <transition name="fade" mode="out-in">
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 
@@ -27,7 +29,8 @@ export default {
         "number",
         "notice",
         "message",
-        "drop"
+        "drop",
+        "select"
       ],
     }
   },

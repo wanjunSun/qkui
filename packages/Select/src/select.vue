@@ -1,11 +1,24 @@
 <template>
   <div :class="classes">
     <div :class="selectionCls">
-      <span :class="prefixCls + '-hader-font'">{{ selectVal }}</span>
-      <qk-icon
-        type="qk-icon-arrow-down"
-        :class="prefixCls + '-hader-arrow'"
-      ></qk-icon>
+      <slot name="head">
+        <input type="hidden" :name="name" :value="publicVaule" />
+        <qk-head
+          :values="values"
+          :initial-label="initialLabel"
+          :multiple="multiple"
+          :filterable="filterable"
+          :disabled="disabled"
+          :clearable="canBeCleared"
+          :placeholder="placeholder"
+          :query-prop="query"
+          @query-change="onQueryChange"
+          @input-focus="isFocused = true"
+          @input-blur="isFocused = false"
+          @clear="onClear"
+        >
+        </qk-head>
+      </slot>
     </div>
 
     <transition name="transition-option">
@@ -18,12 +31,22 @@
 
 <script>
 import { oneOf } from "../../../src/utils"
-import qkIcon from "../../icon"
 import qkOption from "./option"
+import qkHead from "./select-head"
 const prefixCls = "qk-select"
 export default {
   name: "qkSelect",
-  components: [qkIcon, qkOption],
+  components: { qkOption, qkHead },
+  data() {
+    return {
+      prefixCls,
+      query: "",
+      isFocused: false,
+      initialLabel: this.label,
+      unchangedQuery: true,
+      values: this.getInitialValue(),
+    }
+  },
   props: {
     value: {
       type: [String, Number, Array],
@@ -33,11 +56,37 @@ export default {
       type: [String, Number, Array],
       default: "",
     },
+    filterable: {
+      type: Boolean,
+      default: false,
+    },
     disabled: { type: Boolean, default: false },
     size: {
       validator(v) {
         return oneOf(v, ["small", "large", "default"])
       },
+    },
+    multiple: {
+      type: Boolean,
+      default: false,
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
+    clearable: {
+      type: Boolean,
+      default: false,
+    },
+    remoteMethod: {
+      type: Function,
+    },
+    labelInValue: {
+      type: Boolean,
+      default: false,
+    },
+    name: {
+      type: String,
     },
   },
   computed: {
@@ -46,21 +95,56 @@ export default {
         `${prefixCls}`,
         {
           [`${prefixCls}-disabled`]: this.disabled,
-          [`${prefixCls}-${size}`]: !this.size,
+          [`${prefixCls}-${this.size}`]: !!this.size,
+          [`${prefixCls}-multiple`]: this.multiple,
+          [`${prefixCls}-single`]: !this.multiple,
         },
       ]
     },
     selectionCls() {
       return [`${prefixCls}-selection`]
     },
-    selectVal() {
-      return ""
+    options() {
+      return {
+        value: this.values[0],
+        label: this.label,
+        disabled: false,
+        selected: false,
+        isFocused: false,
+      }
     },
-    options(){
-      return {}
-    }
+    getInitialValue() {
+      const { multiple, value } = this
+      let intialValue = Array.isArray(value) ? value : [value]
+      if (
+        !multiple &&
+        (typeof intialValue[0] === "undefault" ||
+          String(intialValue[0]).trim() === "")
+      )
+        intialValue = []
+      return intialValue.filter(Boolean)
+    },
+    //input
+    canBeCleared() {
+      const qualifiesForClear = !this.multiple && this.clearable
+      return qualifiesForClear && this.reset
+    },
+    remote() {
+      return typeof this.remoteMethod === "function"
+    },
+    publicVaule() {
+      if (this.labelInValue) this.multiple ? this.values : this.values[0]
+      else
+        this.multiple
+          ? this.values.map((option) => option.value)
+          : (this.values[0] || {}).value
+    },
+  },
+  methods: {
+    reset() {
+      this.unchangedQuery = true
+      this.values = []
+    },
   },
 }
 </script>
-
-<style></style>

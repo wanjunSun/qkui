@@ -7,4 +7,31 @@
   width: 100%;
   font-size: @css-font-size;
   color: #333;
+  line-height: normal;
+
+  &-selection {
+    display: block;
+    box-sizing: border-box;
+    outline: none;
+    user-select: none;
+    cursor: @cursor-pointer;
+    position: relative;
+    background-color: #fff;
+    border-radius: @css-radius-size-small;
+    border: 1px solid @css-color-info;
+    transition: all .3s ease-in-out;
+
+    &:hover,
+    &-focused {
+      .hover();
+
+      .@{css-perfix-select}-arrow {
+        display: inline-block;
+      }
+    }
+  }
+
+  &-arrow {
+    .inner-arrow();
+  }
 }
