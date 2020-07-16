@@ -64,6 +64,11 @@ const routes = [
     name: "select",
     component: (reverse) => require(["../views/Select.vue"], reverse),
   },
+  {
+    path: "/tab",
+    name: "tab",
+    component: (reverse) => require(["../views/Tab.vue"], reverse),
+  },
 ]
 
 const router = new VueRouter({

@@ -1,3 +1,4 @@
+
 <template>
   <div :class="classes">
     <div :class="selectionCls">
@@ -30,6 +31,7 @@
 </template>
 
 <script>
+/*eslint-disable*/
 import { oneOf } from "../../../src/utils"
 import qkOption from "./option"
 import qkHead from "./select-head"

@@ -1,0 +1,94 @@
+@tabs-prefix-cls: ~"@{css-prefix}tab";
+
+.@{tabs-prefix-cls} {
+  position: relative;
+  overflow: hidden;
+  color: @text-color;
+  box-sizing: border-box;
+  .clearfix();
+
+  &-bar {
+    outline: none;
+    border-bottom: 1px solid @css-color-primary;
+    margin-bottom: 16px;
+  }
+
+  &-link-bar {
+    height: 2px;
+    box-sizing: border-box;
+    background-color: @css-color-primary;
+    position: absolute;
+    left: 0;
+    bottom: 1px;
+    z-index: 1;
+    transition: transform .3s ease-in-out;
+    transform-origin: 0 0;
+  }
+
+  &-nav {
+    padding-left: 0;
+    margin: 0;
+    // float: left;
+    list-style: none;
+    box-sizing: border-box;
+    position: relative;
+    transition: transform 0.5s ease-in-out;
+
+    &:before,
+    &:after {
+      display: table;
+      content: " ";
+    }
+
+    &:after {
+      clear: both;
+    }
+
+    &-next {
+      position: absolute;
+      line-height: 32px;
+      cursor: pointer;
+      right: 0;
+    }
+
+    .@{tabs-prefix-cls}-tab {
+      display: inline-block;
+      height: 100%;
+      padding: @css-padding-default;
+      cursor: @cursor-pointer;
+
+      &-active {
+        color: @css-color-primary;
+      }
+
+      &-disabled {
+        pointer-events: none;
+        cursor: @cursor-disabled;
+        color: @css-color-disable;
+      }
+
+      &:hover {
+        color: @link-hover-color ;
+      }
+
+      &:active {
+        color: @link-active-color;
+      }
+
+      .@{css-prefix-icon} {
+        width: 14px;
+        height: 14px;
+        margin-right: 5px;
+      }
+    }
+  }
+  &-small {
+    font-size: @css-font-size-small;
+  }
+
+  &-small &-tab {
+    margin-right: 0;
+    padding: @css-padding-small;
+    font-size: @css-font-size-small;
+  }
+}

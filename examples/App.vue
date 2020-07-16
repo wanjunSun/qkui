@@ -30,7 +30,8 @@ export default {
         "notice",
         "message",
         "drop",
-        "select"
+        // "select",
+        "tab",
       ],
     }
   },
