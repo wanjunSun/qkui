@@ -32,6 +32,7 @@ export default {
         "drop",
         // "select",
         "tab",
+        "card"
       ],
     }
   },

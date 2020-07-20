@@ -69,6 +69,11 @@ const routes = [
     name: "tab",
     component: (reverse) => require(["../views/Tab.vue"], reverse),
   },
+  {
+    path: "/card",
+    name: "card",
+    component: (reverse) => require(["../views/Card.vue"], reverse),
+  },
 ]
 
 const router = new VueRouter({

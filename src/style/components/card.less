@@ -1,0 +1,26 @@
+@perfix-card: ~'@{css-prefix}card';
+
+.@{perfix-card} {
+  display: inline-block;
+  border: 1px solid @card-border;
+  border-radius: @css-radius-default;
+  background-color: @css-white;
+  transition: .3s;
+  min-width: 120px;
+  &-hover:hover {
+    box-shadow: 0 0 8px shade(@card-border,15%);
+  }
+
+  &-alawys {
+    box-shadow: 0 0 8px shade(@card-border,15%);
+  }
+
+  &-heard {
+    padding: @card-padding;
+    border-bottom: 1px solid @card-border;
+  }
+
+  &-body {
+    padding: @card-padding;
+  }
+}
