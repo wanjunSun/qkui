@@ -1,4 +1,3 @@
-
 <template>
   <div :class="classes">
     <div :class="selectionCls">
@@ -90,6 +89,9 @@ export default {
     name: {
       type: String,
     },
+    placeholder: {
+      type: String,
+    },
   },
   computed: {
     classes() {
@@ -115,17 +117,6 @@ export default {
         isFocused: false,
       }
     },
-    getInitialValue() {
-      const { multiple, value } = this
-      let intialValue = Array.isArray(value) ? value : [value]
-      if (
-        !multiple &&
-        (typeof intialValue[0] === "undefault" ||
-          String(intialValue[0]).trim() === "")
-      )
-        intialValue = []
-      return intialValue.filter(Boolean)
-    },
     //input
     canBeCleared() {
       const qualifiesForClear = !this.multiple && this.clearable
@@ -147,6 +138,57 @@ export default {
       this.unchangedQuery = true
       this.values = []
     },
+    getInitialValue() {
+      const { multiple, value } = this
+      let intialValue = Array.isArray(value) ? value : [value]
+      if (
+        !multiple &&
+        (typeof intialValue[0] === "undefault" ||
+          String(intialValue[0]).trim() === "")
+      )
+        intialValue = []
+
+      return intialValue.filter(Boolean)
+    },
+    onQueryChange(query) {
+      if (query.length > 0 && query !== this.query) this.visible = true
+      this.query = query
+      this.unchangedQuery = this.visible
+    },
+    onClear() {
+      this.$emit("chear")
+      this.hideMenu()
+      if (this.clearable) this.values = []
+    },
+  },
+  watch: {
+    value(v) {
+      const { getInitialValue, getOptionData, publicValue } = this
+      if (value === "") this.values = []
+      else if (JSON.stringify(value) !== JSON.stringify(publicValue)) {
+        this.$nextTick(
+          () =>
+            (this.values = getInitialValue()
+              .map(getOptionData)
+              .filter(Boolean))
+        )
+      }
+    },
+  },
+  values(now, before) {
+    const newValue = JSON.stringify(now)
+    const oldValue = JSON.stringify(before)
+    const showEmitInput = newValue !== oldValue
+    if (showEmitInput) {
+      const vModelValue = this.labelInValue
+        ? this.multiple
+          ? this.publicValue.map(({ value }) => value)
+          : this.publicValue.value
+        : this.publicValue
+      this.$emit("input", vModelValue) // to update v-model
+      this.$emit("change", this.publicValue)
+      // this.dispatch('FormItem', 'on-form-change', this.publicValue);
+    }
   },
 }
 </script>

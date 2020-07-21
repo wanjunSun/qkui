@@ -1,5 +1,8 @@
 <template>
   <div id="app" style="padding:10px">
+    <header class="header">
+      <img src="./assets/logo.png" class="logo" title="qkui、轻量级ui" />
+    </header>
     <router-link
       class="router"
       :to="'/' + item"
@@ -32,7 +35,8 @@ export default {
         "drop",
         // "select",
         "tab",
-        "card"
+        "card",
+        "badge",
       ],
     }
   },
@@ -41,5 +45,17 @@ export default {
 <style>
 .router {
   margin: 5px;
+}
+
+.logo {
+  width: 30px;
+  height: 30px;
+}
+.header {
+  width: 100%;
+  padding: 0 5px;
+  border-bottom: 3px solid transparent;
+  border-image: linear-gradient(to right, #005eda, #64ff64);
+  border-image-slice: 10;
 }
 </style>

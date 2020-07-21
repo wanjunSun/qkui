@@ -1,0 +1,31 @@
+@prefix-badge: ~"@{css-prefix}badge";
+
+.@{prefix-badge} {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+
+  &-sup {
+    position: absolute;
+    transform: translateX(50%);
+    transform-origin: -10% center;
+    top: -10px;
+    right: 0;
+    height: 20px;
+    min-width: 20px;
+    border: 1px solid transparent;
+    text-align: center;
+    padding: 0 5px;
+    color: @css-white;
+    border-radius: @css-radius-size-large;
+    z-index: 8;
+    &-dot {
+      transform-origin: 0 center;
+      height: 6px;
+      min-width: 6px;
+      top: -3px;
+      padding: 0;
+      border-radius: 100%;
+    }
+  }
+}

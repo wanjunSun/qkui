@@ -73,6 +73,10 @@ export default {
       type: String,
       default: "",
     },
+    remote: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
@@ -143,23 +147,23 @@ export default {
     onClear() {
       this.$emit("clear")
     },
-    watch: {
-      values([value]) {
-        if (!this.filterable) return
-        if (this.multiple) {
-          this.query = ""
-          return
-        }
-        if (typeof value === "undefault" || value === "" || value === null)
-          this.query = null
-        else this.query = value.label
-      },
-      query(val) {
-        this.$emit("query-change", val)
-      },
-      queryProp(query) {
-        if (query !== this.query) this.query = query
-      },
+  },
+  watch: {
+    values([value]) {
+      if (!this.filterable) return
+      if (this.multiple) {
+        this.query = ""
+        return
+      }
+      if (typeof value === "undefault" || value === "" || value === null)
+        this.query = null
+      else this.query = value.label
+    },
+    query(val) {
+      this.$emit("query-change", val)
+    },
+    queryProp(query) {
+      if (query !== this.query) this.query = query
     },
   },
 }
