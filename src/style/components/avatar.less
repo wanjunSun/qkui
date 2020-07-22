@@ -1,0 +1,49 @@
+@avatar-prefix: ~'@{css-prefix}avatar';
+
+.@{avatar-prefix} {
+  display: inline-block;
+  position: relative;
+  margin: 5px;
+  border: 0;
+  text-align: center;
+  color: @css-white;
+  background-color: tint(@css-color-disable, 50%);
+  white-space: nowrap;
+  overflow: hidden;
+  vertical-align: middle;
+
+  &-small {
+    .avatar-size(24px, 12px)
+  }
+
+  &-default {
+    .avatar-size(32px, 14px)
+  }
+
+  &-large {
+    .avatar-size(40px, 18px)
+  }
+
+  &-circle {
+    border-radius: 50%;
+  }
+
+  &-square {
+    border-radius: @css-radius-size-small;
+  }
+
+  &>img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .avatar-size(@size, @font) {
+    width: @size;
+    height: @size;
+    line-height: @size;
+
+    .@{css-prefix-icon} {
+      font-size: @font;
+    }
+  }
+}

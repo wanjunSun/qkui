@@ -6,6 +6,97 @@
   "description": "自己编写一套ui",
   "glyphs": [
     {
+      "icon_id": "1236803",
+      "name": "头像",
+      "font_class": "avatar",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "1808724",
+      "name": "头像",
+      "font_class": "avatar1",
+      "unicode": "e689",
+      "unicode_decimal": 59017
+    },
+    {
+      "icon_id": "7494710",
+      "name": "商务头像，男士",
+      "font_class": "avatarman",
+      "unicode": "e6a0",
+      "unicode_decimal": 59040
+    },
+    {
+      "icon_id": "7494730",
+      "name": "人物，男士，头像",
+      "font_class": "avatarboy",
+      "unicode": "e6a1",
+      "unicode_decimal": 59041
+    },
+    {
+      "icon_id": "7494733",
+      "name": "老人，爷爷，头像",
+      "font_class": "avataroldman",
+      "unicode": "e6a3",
+      "unicode_decimal": 59043
+    },
+    {
+      "icon_id": "7494734",
+      "name": "妇女，女士，头像",
+      "font_class": "woman",
+      "unicode": "e6a4",
+      "unicode_decimal": 59044
+    },
+    {
+      "icon_id": "8776842",
+      "name": "search",
+      "font_class": "icon-test",
+      "unicode": "e63c",
+      "unicode_decimal": 58940
+    },
+    {
+      "icon_id": "8776877",
+      "name": "upload",
+      "font_class": "icon-test1",
+      "unicode": "e640",
+      "unicode_decimal": 58944
+    },
+    {
+      "icon_id": "8776878",
+      "name": "download",
+      "font_class": "icon-test2",
+      "unicode": "e641",
+      "unicode_decimal": 58945
+    },
+    {
+      "icon_id": "11372640",
+      "name": "编辑",
+      "font_class": "bianji",
+      "unicode": "e8ac",
+      "unicode_decimal": 59564
+    },
+    {
+      "icon_id": "11372666",
+      "name": "分享",
+      "font_class": "fenxiang",
+      "unicode": "e8b0",
+      "unicode_decimal": 59568
+    },
+    {
+      "icon_id": "11372676",
+      "name": "密码",
+      "font_class": "mima",
+      "unicode": "e8b2",
+      "unicode_decimal": 59570
+    },
+    {
+      "icon_id": "11372691",
+      "name": "筛选",
+      "font_class": "shaixuan",
+      "unicode": "e8b6",
+      "unicode_decimal": 59574
+    },
+    {
       "icon_id": "2861028",
       "name": "Loading",
       "font_class": "Loading",
@@ -95,13 +186,6 @@
       "font_class": "help",
       "unicode": "e752",
       "unicode_decimal": 59218
-    },
-    {
-      "icon_id": "11488069",
-      "name": "loading",
-      "font_class": "loading",
-      "unicode": "e756",
-      "unicode_decimal": 59222
     },
     {
       "icon_id": "11487977",

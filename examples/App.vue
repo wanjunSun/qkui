@@ -19,25 +19,14 @@
 
 <script>
 export default {
+  mounted() {
+    this.$router.options.routes.map((x) => {
+      this.routerList.push(x.name)
+    })
+  },
   data() {
     return {
-      routerList: [
-        "row",
-        "button",
-        "tag",
-        "alert",
-        "input",
-        "radio",
-        "checkbox",
-        "number",
-        "notice",
-        "message",
-        "drop",
-        // "select",
-        "tab",
-        "card",
-        "badge",
-      ],
+      routerList: [],
     }
   },
 }
