@@ -84,6 +84,11 @@ const routes = [
     name: "avatar",
     component: (reverse) => require(["../views/Avatar.vue"], reverse),
   },
+  {
+    path: "/switch",
+    name: "switch",
+    component: (reverse) => require(["../views/Switch.vue"], reverse),
+  },
 ]
 
 const router = new VueRouter({
