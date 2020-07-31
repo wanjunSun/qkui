@@ -49,10 +49,18 @@ export default {
       return [`${preflxCls}-inner`]
     },
     warpStyles() {
-      let style = {}
-      if (this.successColor && this.currentValue === this.trueValue)
-        style = { backgroundColor: this.successColor }
-      else style = { backgroundColor: this.errorColor }
+      const { successColor, errorColor } = this
+      let style = { }
+      if (successColor && this.currentValue === this.trueValue)
+        style = {
+          backgroundColor: successColor,
+          borderColor: successColor,
+        }
+      else
+        style = {
+          backgroundColor: errorColor,
+          borderColor: errorColor,
+        }
       return style
     },
   },
@@ -82,17 +90,14 @@ export default {
         onClick={(e) => {
           this.toggle(e)
         }}
-        onKeyDownSpace={(e) => {
-          this.toggle(e)
-        }}
       >
         <input type="hidden" name={this.name} value={this.currentValue}></input>
         <span class={this.innerClasses}>
-          {this.$slots.open && this.currentValue === this.trueValue
-            ? this.$slots.open
+          {this.$slots.left && this.currentValue === this.trueValue
+            ? this.$slots.left
             : ""}
-          {this.$slots.close && this.currentValue === this.falseValue
-            ? this.$slots.close
+          {this.$slots.right && this.currentValue === this.falseValue
+            ? this.$slots.right
             : ""}
         </span>
       </span>

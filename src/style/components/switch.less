@@ -38,6 +38,7 @@
     top: 1px;
     cursor: @cursor-pointer;
     transition: left .3s ease-in-out, width .3s ease-in-out;
+
   }
 
   &::after::after {
@@ -45,7 +46,7 @@
   }
 
   &:focus {
-    // box-shadow: 0 0 0 2px fade(@css-color-primary, 30%);
+    box-shadow: 0 0 0 2px fade(@css-color-primary, 30%);
     outline: 0;
   }
 
@@ -99,7 +100,7 @@
   }
 
   &-checked {
-    // border-color: @css-color-primary;
+    border-color: @css-color-primary;
     background-color: @css-color-primary;
 
     .@{switch-prefix}-inner {
