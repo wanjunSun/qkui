@@ -1,0 +1,18 @@
+@affix-prefix: ~"@{css-prefix}affix";
+
+
+.@{affix-prefix} {
+  display: inline-block;
+  position: fixed;
+  padding: @css-padding-default;
+  text-align: center;
+  color: @css-white;
+  background: tint(@css-color-primary, 30%);
+  overflow: hidden;
+  .btn-animation();
+  outline: none;
+  transition: all .3s;
+  &:hover {
+    border-radius: @css-radius-default;
+  }
+}
