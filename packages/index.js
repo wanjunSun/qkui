@@ -17,6 +17,7 @@ import QKBadge from "./Badge"
 import QKAvatar from "./Avatar"
 import QKSwitch from "./Switch"
 import QKAffix from "./Affix"
+import QKBackTop from "./BackTop"
 import "../src/style/index.less"
 // 所有组件列表
 const components = [
@@ -47,6 +48,7 @@ const components = [
   QKAvatar,
   QKSwitch,
   QKAffix,
+  QKBackTop,
 ]
 // 定义 install 方法，接收 Vue 作为参数
 const install = function(Vue) {

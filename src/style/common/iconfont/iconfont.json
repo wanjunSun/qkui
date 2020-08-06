@@ -6,6 +6,34 @@
   "description": "自己编写一套ui",
   "glyphs": [
     {
+      "icon_id": "996990",
+      "name": "置顶",
+      "font_class": "top",
+      "unicode": "e684",
+      "unicode_decimal": 59012
+    },
+    {
+      "icon_id": "4646397",
+      "name": "置顶",
+      "font_class": "top-hollow",
+      "unicode": "e7ee",
+      "unicode_decimal": 59374
+    },
+    {
+      "icon_id": "5687162",
+      "name": "置底（线）",
+      "font_class": "lowest-hollow",
+      "unicode": "e619",
+      "unicode_decimal": 58905
+    },
+    {
+      "icon_id": "14313273",
+      "name": "向下置底",
+      "font_class": "lowest",
+      "unicode": "e651",
+      "unicode_decimal": 58961
+    },
+    {
       "icon_id": "1236803",
       "name": "头像",
       "font_class": "avatar",
@@ -50,21 +78,21 @@
     {
       "icon_id": "8776842",
       "name": "search",
-      "font_class": "icon-test",
+      "font_class": "search",
       "unicode": "e63c",
       "unicode_decimal": 58940
     },
     {
       "icon_id": "8776877",
       "name": "upload",
-      "font_class": "icon-test1",
+      "font_class": "upload",
       "unicode": "e640",
       "unicode_decimal": 58944
     },
     {
       "icon_id": "8776878",
       "name": "download",
-      "font_class": "icon-test2",
+      "font_class": "download",
       "unicode": "e641",
       "unicode_decimal": 58945
     },
@@ -196,7 +224,7 @@
     },
     {
       "icon_id": "11487978",
-      "name": "arrow-lift",
+      "name": "arrow-left",
       "font_class": "arrow-lift",
       "unicode": "e744",
       "unicode_decimal": 59204

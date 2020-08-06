@@ -13,9 +13,14 @@ export default {
       return style
     },
   },
+  methods: {
+    isClick() {
+      this.$emit("click")
+    },
+  },
   render() {
     return (
-      <span class="qk-affix" style={this.styles}>
+      <span class="qk-affix" style={this.styles} onClick={this.isClick}>
         {this.$slots.default ? this.$slots.default : ""}
       </span>
     )

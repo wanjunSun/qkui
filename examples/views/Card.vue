@@ -7,7 +7,7 @@
    一直存在阴影
   </qk-card>
   <qk-card width="150px">
-    无阴影
+    无阴影  0.00
   </qk-card>
   <qk-card width="150px" hasAngle>
     直角

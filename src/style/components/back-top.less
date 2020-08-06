@@ -1,0 +1,36 @@
+@backtop-prefix: ~"@{css-prefix}back-top";
+
+.@{backtop-prefix} {
+  z-index: 1900;
+  position: fixed;
+  cursor: pointer;
+  display: none;
+  &.@{backtop-prefix}-show {
+    display: block;
+  }
+
+  &-inner {
+    background-color:@css-white;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+    transition: all .3s ease-in-out;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:hover {
+      background-color: shade(@css-color-primary,10%);
+      box-shadow: 0 0 0 6px  tint(@css-color-primary,15%);
+      i{
+        color:@css-white
+      }
+    }
+  }
+
+  i {
+    color:@css-color-primary;
+    font-size: 20px;
+    font-weight: bold;
+  }
+}

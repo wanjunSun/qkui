@@ -94,6 +94,11 @@ const routes = [
     name: "affix",
     component: (reverse) => require(["../views/Affix.vue"], reverse),
   },
+  {
+    path: "/back-top",
+    name: "back-top",
+    component: (reverse) => require(["../views/BackTop.vue"], reverse),
+  },
 ]
 
 const router = new VueRouter({
